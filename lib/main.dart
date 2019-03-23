@@ -191,8 +191,8 @@ class MState extends State<App> {
     return Positioned(
       top: width * (childData['top']),
       left: width * (childData['left']),
-      right: width * (childData['right']),
-      bottom: width * (childData['bottom']),
+      width: width * (childData['size']),
+      height: width * (childData['size']),
       child: GestureDetector(onTap: () => goTo(id), child: img(map[id]['img'])),
     );
   }

@@ -11,227 +11,195 @@
     ],
     "source": "https://www.thoughtco.com/all-about-animal-cells-373379",
     "left": 0.0,
-    "right": 0.0,
     "top": 0.0,
-    "bottom": 0.0,
+    "size": 1.0,
     "desc": "Animal cells are eukaryotic cells or cells with a membrane-bound nucleus. Unlike prokaryotic cells, DNA in animal cells is housed within the nucleus. In addition to having a nucleus, animal cells also contain other membrane-bound organelles, or tiny cellular structures, that carry out specific functions necessary for normal cellular operation. Organelles have a wide range of responsibilities that include everything from producing hormones and enzymes to providing energy for animal cells.",
     "children": [
       {
         "id": "mitochondria",
         "left": 0.65,
-        "right": 0.25,
         "top": 0.15,
-        "bottom": 0.75
+        "size": 0.1
       },
       {
         "id": "mitochondria",
         "left": 0.76,
-        "right": 0.14,
         "top": 0.2,
-        "bottom": 0.7
+        "size": 0.1
       },
       {
         "id": "vacuole",
         "left": 0.73,
-        "right": 0.12,
         "top": 0.6,
-        "bottom": 0.25
+        "size": 0.15
       },
       {
         "id": "lysosome",
         "left": 0.2,
-        "right": 0.72,
         "top": 0.2,
-        "bottom": 0.72
+        "size": 0.08
       },
       {
         "id": "lysosome",
         "left": 0.32,
-        "right": 0.60,
         "top": 0.25,
-        "bottom": 0.67
+        "size": 0.08
       },
       {
         "id": "lysosome",
         "left": 0.25,
-        "right": 0.57,
         "top": 0.12,
-        "bottom": 0.80
+        "size": 0.08
       },
       {
         "id": "centrosome",
         "left": 0.8,
-        "right": 0.1,
         "top": 0.45,
-        "bottom": 0.45
+        "size": 0.1
       },
       {
         "id": "nucleus",
         "left": 0.2,
-        "right": 0.4,
         "top": 0.4,
-        "bottom": 0.2
+        "size": 0.4
       },
       {
         "id": "nucleolus",
-        "left": 0.34,
-        "right": 0.5,
+        "left": 0.35,
         "top": 0.5,
-        "bottom": 0.35
+        "size": 0.15
       },
       {
         "id": "golgi",
         "left": 0.2,
-        "right": 0.6,
         "top": 0.75,
-        "bottom": 0.1
+        "size": 0.15
       },
       {
         "id": "reticulum",
         "left": 0.45,
-        "right": 0.35,
         "top": 0.35,
-        "bottom": 0.45
+        "size": 0.2
       },
       {
         "id": "ribosome",
         "left": 0.52,
-        "right": 0.45,
         "top": 0.355,
-        "bottom": 0.615
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.55,
-        "right": 0.42,
         "top": 0.375,
-        "bottom": 0.595
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.5,
-        "right": 0.47,
         "top": 0.37,
-        "bottom": 0.6
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.5,
-        "right": 0.47,
         "top": 0.35,
-        "bottom": 0.62
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.52,
-        "right": 0.45,
         "top": 0.4,
-        "bottom": 0.57
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.54,
-        "right": 0.43,
         "top": 0.42,
-        "bottom": 0.55
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.54,
-        "right": 0.43,
         "top": 0.4,
-        "bottom": 0.57
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.47,
-        "right": 0.5,
         "top": 0.38,
-        "bottom": 0.59
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.2,
-        "right": 0.77,
         "top": 0.4,
-        "bottom": 0.57
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.15,
-        "right": 0.82,
         "top": 0.3,
-        "bottom": 0.67
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.4,
-        "right": 0.57,
         "top": 0.8,
-        "bottom": 0.17
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.6,
-        "right": 0.37,
         "top": 0.85,
-        "bottom": 0.12
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.7,
-        "right": 0.27,
         "top": 0.6,
-        "bottom": 0.37
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.8,
-        "right": 0.17,
         "top": 0.4,
-        "bottom": 0.57
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.5,
-        "right": 0.47,
         "top": 0.15,
-        "bottom": 0.82
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.52,
-        "right": 0.45,
         "top": 0.17,
-        "bottom": 0.8
+        "size": 0.03
       },
       {
         "id": "ribosome",
         "left": 0.45,
-        "right": 0.52,
         "top": 0.22,
-        "bottom": 0.75
+        "size": 0.03
       },
       {
         "id": "microtubule",
         "left": 0.55,
-        "right": 0.25,
         "top": 0.25,
-        "bottom": 0.55
+        "size": 0.2
       },
       {
         "id": "microtubule",
         "left": 0.6,
-        "right": 0.3,
         "top": 0.7,
-        "bottom": 0.2
+        "size": 0.1
       },
       {
         "id": "microtubule",
         "left": 0.1,
-        "right": 0.8,
         "top": 0.5,
-        "bottom": 0.4
+        "size": 0.1
       }
     ]
   },
@@ -247,38 +215,33 @@
     ],
     "source": "https://en.wikipedia.org/wiki/Plant_cell",
     "left": 0.0,
-    "right": 0.0,
     "top": 0.0,
-    "bottom": 0.0,
+    "size": 1.0,
     "desc": "Plant cells are  eukaryotic cells present in green plants, photosynthetic eukaryotes of the kingdom Plantae. Their distinctive features include primary cell walls containing cellulose, hemicelluloses and pectin, the presence of plastids with the capability to perform photosynthesis and store starch, a large vacuole that regulates turgor pressure, the absence of flagella or centrioles, except in the gametes, and a unique method of cell division involving the formation of a cell plate or phragmoplast that separates the new daughter cells.",
     "children": [
       {
         "id": "vacuole",
         "left": 0.25,
-        "right": 0.15,
         "top": 0.33,
-        "bottom": 0.07
+        "size": 0.6
       },
       {
         "id": "nucleus",
         "left": 0.3,
-        "right": 0.45,
         "top": 0.3,
-        "bottom": 0.45
+        "size": 0.25
       },
       {
         "id": "nucleolus",
         "left": 0.4,
-        "right": 0.5,
         "top": 0.4,
-        "bottom": 0.5
+        "size": 0.1
       },
       {
         "id": "reticulum",
         "left": 0.45,
-        "right": 0.4,
         "top": 0.26,
-        "bottom": 0.59
+        "size": 0.15
       }
     ]
   },
@@ -294,9 +257,8 @@
     ],
     "source": "https://en.wikipedia.org/wiki/Mitochondrion",
     "left": 0.0,
-    "right": 0.0,
     "top": 0.0,
-    "bottom": 0.0,
+    "size": 1.0,
     "desc": "The mitochondrion (plural mitochondria) is a double-membrane-bound organelle found in most eukaryotic organisms. Some cells in some multicellular organisms may, however, lack them (for example, mature mammalian red blood cells). A number of unicellular organisms, such as microsporidia, parabasalids, and diplomonads, have also reduced or transformed their mitochondria into other structures. To date, only one eukaryote, Monocercomonoides, is known to have completely lost its mitochondria.",
     "children": []
   },
@@ -312,9 +274,8 @@
     ],
     "source": "https://en.wikipedia.org/wiki/Vacuole",
     "left": 0.0,
-    "right": 0.0,
     "top": 0.0,
-    "bottom": 0.0,
+    "size": 1.0,
     "desc": "A vacuole is a membrane-bound organelle which is present in all plant and fungal cells and some protist, animal and bacterial cells and are essentially enclosed compartments which are filled with water containing inorganic and organic molecules including enzymes in solution, though in certain cases they may contain solids which have been engulfed. Vacuoles are formed by the fusion of multiple membrane vesicles and are effectively just larger forms of these. The organelle has no basic shape or size; its structure varies according to the requirements of the cell.",
     "children": []
   },
@@ -330,9 +291,8 @@
     ],
     "source": "https://www.thoughtco.com/all-about-animal-cells-373379",
     "left": 0.0,
-    "right": 0.0,
     "top": 0.0,
-    "bottom": 0.0,
+    "size": 1.0,
     "desc": "A lysosome is a membrane-bound organelle found in many animal cells and most plant cells. They are spherical vesicles that contain hydrolytic enzymes that can break down many kinds of biomolecules. A lysosome has a specific composition, of both its membrane proteins, and its lumenal proteins. The lumen's pH (4.5–5.0) is optimal for the enzymes involved in hydrolysis, analogous to the activity of the stomach. Besides degradation of polymers, the lysosome is involved in various cell processes, including secretion, plasma membrane repair, cell signaling, and energy metabolism.",
     "children": []
   },
@@ -348,9 +308,8 @@
     ],
     "source": "https://en.wikipedia.org/wiki/Centrosome",
     "left": 0.0,
-    "right": 0.0,
     "top": 0.0,
-    "bottom": 0.0,
+    "size": 1.0,
     "desc": "In cell biology, the centrosome (Latin centrum 'center' + Greek sōma 'body') is an organelle that serves as the main microtubule organizing center (MTOC) of the animal cell, as well as a regulator of cell-cycle progression. The centrosome is thought to have evolved only in the metazoan lineage of eukaryotic cells. Fungi and plants lack centrosomes and therefore use structures other than MTOCs to organize their microtubules. Although the centrosome has a key role in efficient mitosis in animal cells, it is not essential in certain fly and flatworm species.",
     "children": []
   },
@@ -366,9 +325,8 @@
     ],
     "source": "https://en.wikipedia.org/wiki/Cell_nucleus",
     "left": 0.0,
-    "right": 0.0,
     "top": 0.0,
-    "bottom": 0.0,
+    "size": 1.0,
     "desc": "In cell biology, the  nucleus is a membrane-bound organelle found in eukaryotic cells. Eukaryotes usually have a single nucleus, but a few cell types, such as mammalian red blood cells, have no nuclei, and a few others including osteoclasts have many. The cell nucleus contains all of the cell's genome, except for a small fraction of mitochondrial DNA, organized as multiple long linear DNA molecules in a complex with a large variety of proteins, such as histones, to form chromosomes.",
     "children": []
   },
@@ -384,9 +342,8 @@
     ],
     "source": "https://en.wikipedia.org/wiki/Cell_nucleus",
     "left": 0.0,
-    "right": 0.0,
     "top": 0.0,
-    "bottom": 0.0,
+    "size": 1.0,
     "desc": "The nucleolus is the largest structure in the nucleus of eukaryotic cells. It is best known as the site of ribosome biogenesis. Nucleoli also participate in the formation of signal recognition particles and play a role in the cell's response to stress. Nucleoli are made of proteins, DNA and RNA and form around specific chromosomal regions called nucleolar organizing regions. Malfunction of nucleoli can be the cause of several human conditions called \"nucleolopathies\" and the nucleolus is being investigated as a target for cancer chemotherapy.",
     "children": []
   },
@@ -402,9 +359,8 @@
     ],
     "source": "https://en.wikipedia.org/wiki/Golgi_apparatus",
     "left": 0.0,
-    "right": 0.0,
     "top": 0.0,
-    "bottom": 0.0,
+    "size": 1.0,
     "desc": "The Golgi apparatus, also known as the Golgi complex, Golgi body, or simply the Golgi, is an organelle found in most eukaryotic cells. It was identified in 1897 by the Italian scientist Camillo Golgi and named after him in 1898. Part of the endomembrane system in the cytoplasm, the Golgi apparatus packages proteins into membrane-bound vesicles inside the cell before the vesicles are sent to their destination. The Golgi apparatus resides at the intersection of the secretory, lysosomal, and endocytic pathways.",
     "children": []
   },
@@ -420,9 +376,8 @@
     ],
     "source": "https://en.wikipedia.org/wiki/Endoplasmic_reticulum",
     "left": 0.0,
-    "right": 0.0,
     "top": 0.0,
-    "bottom": 0.0,
+    "size": 1.0,
     "desc": "The endoplasmic reticulum (ER) is a type of organelle found in eukaryotic cells that forms an interconnected network of flattened, membrane-enclosed sacs or tube-like structures known as cisternae. The membranes of the ER are continuous with the outer nuclear membrane. The endoplasmic reticulum occurs in most types of eukaryotic cells, but is absent from red blood cells and spermatozoa.",
     "children": []
   },
@@ -438,9 +393,8 @@
     ],
     "source": "https://en.wikipedia.org/wiki/ribosome",
     "left": 0.0,
-    "right": 0.0,
     "top": 0.0,
-    "bottom": 0.0,
+    "size": 1.0,
     "desc": "The ribosome is a complex molecular machine, found within all living cells, that serves as the site of biological protein synthesis (translation). Ribosomes link amino acids together in the order specified by messenger RNA (mRNA) molecules. Ribosomes consist of two major components: the small ribosomal subunits, which read the RNA, and the large subunits, which join amino acids to form a polypeptide chain. Each subunit comprises one or more ribosomal RNA (rRNA) molecules and a variety of ribosomal proteins (r-protein or rProtein).",
     "children": []
   },
@@ -456,9 +410,8 @@
     ],
     "source": "https://en.wikipedia.org/wiki/Microtubule",
     "left": 0.0,
-    "right": 0.0,
     "top": 0.0,
-    "bottom": 0.0,
+    "size": 1.0,
     "desc": "Microtubules are polymers of tubulin that form part of the cytoskeleton and provide structure and shape to the cytoplasm of eukaryotic cells, some bacteria and some archaea (like Asgard). A microtubule can grow as long as 50 micrometres and are highly dynamic. The outer diameter of a microtubule is about 24 nm while the inner diameter is about 12 nm. They are formed by the polymerization of a dimer of two globular proteins, alpha and beta tubulin into protofilaments that can then associate laterally to form a hollow tube, the microtubule.",
     "children": []
   }
