@@ -19,7 +19,7 @@ class MState extends State<App> {
   double zoom = 1;
   double botOffset = 400;
 
-  get current => map[currentId];
+  Map get current => map[currentId];
 
   get width => MediaQuery.of(context).size.width;
 
@@ -102,7 +102,7 @@ class MState extends State<App> {
     );
   }
 
-  Widget buildOrganella(childData) {
+  Widget buildOrganella(Map childData) {
     var id = childData['id'];
     return Positioned(
       key: Key('$id${childData["top"]}${childData["left"]}'),
@@ -192,7 +192,7 @@ class MState extends State<App> {
     );
   }
 
-  Widget drawerItem(cell) {
+  Widget drawerItem(Map cell) {
     return ListTile(
       leading: img(cell['img'], 40.0),
       title: Text(cell['name']),
