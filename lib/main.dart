@@ -59,37 +59,14 @@ class MState extends State<App> {
       appBar: AppBar(title: Text('Microbiology 101')),
       drawer: map == null ? null : drawer(),
       backgroundColor: Color(0xFFB3E5FC),
-      body: body(),
-    );
-  }
-
-  body() => map == null
-      ? Container()
-      : Stack(children: [buildMainPreview(), backDrop()]);
-
-  Widget drawer() {
-    return Drawer(
-      child: Container(
-        color: Color(0xFFB3E5FC),
-        child: ListView(
-            children: [
-          Text('Catalog:', style: tt.display1, textAlign: TextAlign.center),
-          Divider(),
-        ]..addAll(catalog)),
-      ),
-    );
-  }
-
-  get catalog => map.values.map(catalogItem);
-
-  Widget catalogItem(cell) {
-    return ListTile(
-      leading: img(cell['img'], 40.0),
-      title: Text(cell['name']),
-      onTap: () {
-        goTo(cell['id']);
-        Navigator.of(context).pop();
-      },
+      body: map == null
+          ? Container()
+          : Stack(
+              children: [
+                buildMainPreview(),
+                backdrop(),
+              ],
+            ),
     );
   }
 
@@ -112,88 +89,117 @@ class MState extends State<App> {
           offset: translate,
           child: Transform.scale(
             scale: zoom,
-            child: buildCell(),
+            child: SizedBox(
+              height: width,
+              child: Stack(
+                children: [buildOrganella(current)]
+                  ..addAll((current['children'] as List).map(buildOrganella)),
+              ),
+            ),
           ),
         ),
       ),
     );
   }
 
-  buildCell() {
-    var children = [buildOrganella(current)]
-      ..addAll((current['children'] as List).map(buildOrganella));
-    return sb(width, Stack(children: children));
+  Widget buildOrganella(childData) {
+    var id = childData['id'];
+    return Positioned(
+      key: Key('$id${childData["top"]}${childData["left"]}'),
+      top: width * (childData['top']),
+      left: width * (childData['left']),
+      width: width * (childData['size']),
+      height: width * (childData['size']),
+      child: GestureDetector(
+        onTap: () => goTo(id),
+        child: img(map[id]['img']),
+      ),
+    );
   }
 
   Widget relatedRow() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: (current["ref"] as List).map(relatedCard).toList(),
+      children: (current["ref"] as List).map((id) {
+        return Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: InkWell(
+            onTap: () => goTo(id),
+            child: Padding(
+              padding: EdgeInsets.all(8),
+              child: Column(children: <Widget>[
+                img(map[id]['img'], 60.0),
+                Text(map[id]['name']),
+              ]),
+            ),
+          ),
+        );
+      }).toList(),
     );
   }
 
-  Widget relatedCard(id) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: InkWell(
-        onTap: () => goTo(id),
-        child: Padding(
-          padding: EdgeInsets.all(8),
-          child: Column(children: <Widget>[
-            img(map[id]['img'], 60.0),
-            Text(map[id]['name']),
-          ]),
-        ),
-      ),
-    );
-  }
-
-  backDrop() {
+  Widget backdrop() {
     return AnimatedPositioned(
       duration: Duration(milliseconds: 300),
       bottom: -botOffset,
       left: 0,
       right: 0,
       child: GestureDetector(
-        onVerticalDragUpdate: onVertDrag,
+        onVerticalDragUpdate: (d) {
+          if ((d.primaryDelta > 10 && botOffset == 16) ||
+              (d.primaryDelta < -10 && botOffset == 400)) {
+            toggleBackdrop();
+          }
+        },
         onTap: toggleBackdrop,
-        child: backdropBody(),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: Colors.white,
+          ),
+          height: 450,
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Text(current['name'], style: tt.title),
+              sb(16.0),
+              Text(current['desc'], maxLines: 12, overflow: TextOverflow.fade),
+              sb(16.0),
+              Text('Related:', style: tt.subtitle),
+              relatedRow(),
+              sb(16.0),
+              FittedBox(child: Text('Source: ${current['source']}')),
+            ],
+          ),
+        ),
       ),
     );
   }
 
-  onVertDrag(d) {
-    if ((d.primaryDelta > 10 && botOffset == 16) ||
-        (d.primaryDelta < -10 && botOffset == 400)) toggleBackdrop();
-  }
-
-  backdropBody() {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16), color: Colors.white),
-      height: 450,
-      padding: EdgeInsets.all(16),
-      child: Column(children: [
-        Text(current['name'], style: tt.title),
-        sb(16.0),
-        Text(current['desc'], maxLines: 12, overflow: TextOverflow.fade),
-        sb(16.0),
-        Text('Related:', style: tt.subtitle),
-        relatedRow(),
-        sb(16.0),
-        FittedBox(child: Text('Source: ${current['source']}')),
-      ]),
+  Widget drawer() {
+    return Drawer(
+      child: Container(
+        color: Color(0xFFB3E5FC),
+        child: ListView(
+          children: [
+            Text('Catalog:', style: tt.display1, textAlign: TextAlign.center),
+            Divider(),
+          ]..addAll(map.values.map(drawerItem)),
+        ),
+      ),
     );
   }
 
-  Widget buildOrganella(childData) {
-    var id = childData['id'];
-    return Positioned(
-      top: width * (childData['top']),
-      left: width * (childData['left']),
-      width: width * (childData['size']),
-      height: width * (childData['size']),
-      child: GestureDetector(onTap: () => goTo(id), child: img(map[id]['img'])),
+  Widget drawerItem(cell) {
+    return ListTile(
+      leading: img(cell['img'], 40.0),
+      title: Text(cell['name']),
+      onTap: () {
+        goTo(cell['id']);
+        Navigator.of(context).pop();
+      },
     );
   }
 }

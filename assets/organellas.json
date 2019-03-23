@@ -370,12 +370,6 @@
       },
       {
         "id": "ribosome",
-        "left": 0.56,
-        "top": 0.4,
-        "size": 0.03
-      },
-      {
-        "id": "ribosome",
         "left": 0.47,
         "top": 0.3,
         "size": 0.03
