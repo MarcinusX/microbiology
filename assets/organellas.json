@@ -235,6 +235,53 @@
       }
     ]
   },
+  "plant_cell": {
+    "id": "plant_cell",
+    "img": "assets/plant_cell.flr",
+    "name": "Plant cell",
+    "animation": "idle",
+    "ref": [
+      "animal_cell",
+      "vacuole",
+      "lysosome"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Plant_cell",
+    "left": 0.0,
+    "right": 0.0,
+    "top": 0.0,
+    "bottom": 0.0,
+    "desc": "Plant cells are  eukaryotic cells present in green plants, photosynthetic eukaryotes of the kingdom Plantae. Their distinctive features include primary cell walls containing cellulose, hemicelluloses and pectin, the presence of plastids with the capability to perform photosynthesis and store starch, a large vacuole that regulates turgor pressure, the absence of flagella or centrioles, except in the gametes, and a unique method of cell division involving the formation of a cell plate or phragmoplast that separates the new daughter cells.",
+    "children": [
+      {
+        "id": "vacuole",
+        "left": 0.25,
+        "right": 0.15,
+        "top": 0.33,
+        "bottom": 0.07
+      },
+      {
+        "id": "nucleus",
+        "left": 0.3,
+        "right": 0.45,
+        "top": 0.3,
+        "bottom": 0.45
+      },
+      {
+        "id": "nucleolus",
+        "left": 0.4,
+        "right": 0.5,
+        "top": 0.4,
+        "bottom": 0.5
+      },
+      {
+        "id": "reticulum",
+        "left": 0.45,
+        "right": 0.4,
+        "top": 0.26,
+        "bottom": 0.59
+      }
+    ]
+  },
   "mitochondria": {
     "id": "mitochondria",
     "img": "assets/mitoch.flr",

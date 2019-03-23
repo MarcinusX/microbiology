@@ -11,7 +11,7 @@ class App extends StatefulWidget {
 
 class MState extends State<App> {
   Map map;
-  String currentId = 'animal_cell';
+  String currentId = 'plant_cell';
   Offset translate = Offset.zero;
   Offset startTranslate;
   Offset zoomStart;
