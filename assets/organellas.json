@@ -211,7 +211,7 @@
     "ref": [
       "animal_cell",
       "vacuole",
-      "lysosome"
+      "chloroplast"
     ],
     "source": "https://en.wikipedia.org/wiki/Plant_cell",
     "left": 0.0,
@@ -242,6 +242,197 @@
         "left": 0.45,
         "top": 0.26,
         "size": 0.15
+      },
+      {
+        "id": "chloroplast",
+        "left": 0.2,
+        "top": 0.2,
+        "size": 0.08
+      },
+      {
+        "id": "chloroplast",
+        "left": 0.4,
+        "top": 0.1,
+        "size": 0.08
+      },
+      {
+        "id": "chloroplast",
+        "left": 0.15,
+        "top": 0.5,
+        "size": 0.07
+      },
+      {
+        "id": "chloroplast",
+        "left": 0.7,
+        "top": 0.2,
+        "size": 0.08
+      },{
+        "id": "chloroplast",
+        "left": 0.6,
+        "top": 0.3,
+        "size": 0.05
+      },
+      {
+        "id": "chloroplast",
+        "left": 0.78,
+        "top": 0.78,
+        "size": 0.05
+      },
+      {
+        "id": "mitochondria",
+        "left": 0.15,
+        "top": 0.4,
+        "size": 0.1
+      },
+      {
+        "id": "mitochondria",
+        "left": 0.15,
+        "top": 0.68,
+        "size": 0.1
+      },
+      {
+        "id": "mitochondria",
+        "left": 0.55,
+        "top": 0.1,
+        "size": 0.08
+      },
+      {
+        "id": "golgi",
+        "left": 0.1,
+        "top": 0.25,
+        "size": 0.2
+      },
+      {
+        "id": "microtubule",
+        "left": 0.15,
+        "top": 0.78,
+        "size": 0.1
+      },
+      {
+        "id": "microtubule",
+        "left": 0.7,
+        "top": 0.12,
+        "size": 0.1
+      },
+      {
+        "id": "ribosome",
+        "left": 0.65,
+        "top": 0.12,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.2,
+        "top": 0.6,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.16,
+        "top": 0.62,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.21,
+        "top": 0.64,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.21,
+        "top": 0.15,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.31,
+        "top": 0.21,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.27,
+        "top": 0.17,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.33,
+        "top": 0.12,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.56,
+        "top": 0.4,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.56,
+        "top": 0.4,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.47,
+        "top": 0.3,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.5,
+        "top": 0.26,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.53,
+        "top": 0.28,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.55,
+        "top": 0.3,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.49,
+        "top": 0.28,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.51,
+        "top": 0.3,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.4,
+        "top": 0.2,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.44,
+        "top": 0.24,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.6,
+        "top": 0.2,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.82,
+        "top": 0.32,
+        "size": 0.03
       }
     ]
   },
@@ -413,6 +604,23 @@
     "top": 0.0,
     "size": 1.0,
     "desc": "Microtubules are polymers of tubulin that form part of the cytoskeleton and provide structure and shape to the cytoplasm of eukaryotic cells, some bacteria and some archaea (like Asgard). A microtubule can grow as long as 50 micrometres and are highly dynamic. The outer diameter of a microtubule is about 24 nm while the inner diameter is about 12 nm. They are formed by the polymerization of a dimer of two globular proteins, alpha and beta tubulin into protofilaments that can then associate laterally to form a hollow tube, the microtubule.",
+    "children": []
+  },
+  "chloroplast": {
+    "id": "chloroplast",
+    "img": "assets/chloroplast.flr",
+    "name": "Chloroplast",
+    "animation": "idle",
+    "ref": [
+      "mitochondria",
+      "vacuole",
+      "plant_cell"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Chloroplast",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "Chloroplasts are organelles that conduct photosynthesis, where the photosynthetic pigment chlorophyll captures the energy from sunlight, converts it, and stores it in the energy-storage molecules ATP and NADPH while freeing oxygen from water in plant and algal cells. They then use the ATP and NADPH to make organic molecules from carbon dioxide in a process known as the Calvin cycle. The number of chloroplasts per cell varies from one, in unicellular algae, up to 100 in plants like Arabidopsis and wheat.",
     "children": []
   }
 }
