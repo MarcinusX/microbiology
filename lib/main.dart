@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flare_flutter/flare_actor.dart';
@@ -9,7 +10,7 @@ class App extends StatefulWidget {
   MState createState() => MState();
 }
 
-class MState extends State<App> {
+class MState extends State<App> with TickerProviderStateMixin {
   Map map;
   String currentId = 'plant_cell';
   Offset translate = Offset.zero;
@@ -18,12 +19,18 @@ class MState extends State<App> {
   double baseZoom = 1;
   double zoom = 1;
   double botOffset = 400;
+  AnimationController transCtrl;
+  ScrollController scrlCtrl = ScrollController();
+  Timer timer;
+  int scrollDirection = 1;
 
   Map get current => map[currentId];
 
   get width => MediaQuery.of(context).size.width;
 
-  get tt => Theme.of(context).textTheme;
+  get th => Theme.of(context);
+
+  get tt => th.textTheme;
 
   sb(size, [child]) => SizedBox(width: size, height: size, child: child);
 
@@ -48,25 +55,77 @@ class MState extends State<App> {
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  void initState() {
+    super.initState();
     loadData();
+    transCtrl = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 500),
+    );
+    transCtrl.addListener(() {});
+    timer = Timer.periodic(Duration(seconds: 5), (t) {
+      if (scrlCtrl.hasClients) {
+        double offset = scrlCtrl.offset + 250 * scrollDirection;
+        if (offset > scrlCtrl.position.maxScrollExtent || offset < 0)
+          scrollDirection *= -1;
+
+        scrlCtrl.animateTo(
+          offset,
+          duration: Duration(seconds: 5),
+          curve: Curves.linear,
+        );
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Microbiology 101')),
-      drawer: map == null ? null : drawer(),
-      backgroundColor: Color(0xFFB3E5FC),
-      body: map == null
-          ? Container()
-          : Stack(
-              children: [
-                buildMainPreview(),
-                backdrop(),
-              ],
+    return Stack(
+      children: <Widget>[
+        Positioned.fill(
+          child: Image.asset(
+            'assets/background.jpg',
+            fit: BoxFit.cover,
+          ),
+        ),
+        Scaffold(
+          backgroundColor: Color(0),
+          body: map == null
+              ? Container()
+              : Stack(
+                  children: [
+                    buildMainPreview(),
+                    backdrop(),
+                    hints(),
+                  ],
+                ),
+        ),
+      ],
+    );
+  }
+
+  Widget hints() {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.all(16),
+          child: SafeArea(
+            bottom: false,
+            child: Text(
+              'Microbiology 101',
+              style: th.primaryTextTheme.title,
             ),
+          ),
+        ),
+        SizedBox(
+          height: 80,
+          child: ListView(
+            controller: scrlCtrl,
+            scrollDirection: Axis.horizontal,
+            children: map.keys.map(smallCard).toList(),
+          ),
+        ),
+      ],
     );
   }
 
@@ -102,41 +161,60 @@ class MState extends State<App> {
     );
   }
 
-  Widget buildOrganella(Map childData) {
+  Widget buildOrganella(childData) {
     var id = childData['id'];
+    var left = childData['left'];
+    var top = childData['top'];
+    var size = childData['size'];
     return Positioned(
-      key: Key('$id${childData["top"]}${childData["left"]}'),
-      top: width * (childData['top']),
-      left: width * (childData['left']),
-      width: width * (childData['size']),
-      height: width * (childData['size']),
+      key: Key('$id$top$left'),
+      top: width * top,
+      left: width * left,
+      width: width * size,
+      height: width * size,
       child: GestureDetector(
-        onTap: () => goTo(id),
         child: img(map[id]['img']),
+        onTap: () {
+          var x = -(left - 0.5 + size / 2) * width / size;
+          var y = -(top - 0.5 + size / 2) * width / size;
+          Animation animation =
+              Tween(begin: translate, end: Offset(x, y)).animate(transCtrl);
+          Animation zoomAnimation =
+              Tween(begin: zoom, end: 1 / size).animate(transCtrl);
+          var listener = () {
+            setState(() {
+              baseZoom = zoomAnimation.value;
+              zoom = zoomAnimation.value;
+              translate = animation.value;
+              botOffset = 400;
+            });
+          };
+          transCtrl.addListener(listener);
+          transCtrl.forward(from: 0).then((_) {
+            transCtrl.removeListener(listener);
+            goTo(id);
+          });
+        },
       ),
     );
   }
 
-  Widget relatedRow() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: (current["ref"] as List).map((id) {
-        return Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+  Widget smallCard(id) {
+    return Opacity(
+      opacity: 0.8,
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: InkWell(
+          onTap: () => goTo(id),
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: Column(children: <Widget>[
+              img(map[id]['img'], 40.0),
+              Text(map[id]['name']),
+            ]),
           ),
-          child: InkWell(
-            onTap: () => goTo(id),
-            child: Padding(
-              padding: EdgeInsets.all(8),
-              child: Column(children: <Widget>[
-                img(map[id]['img'], 60.0),
-                Text(map[id]['name']),
-              ]),
-            ),
-          ),
-        );
-      }).toList(),
+        ),
+      ),
     );
   }
 
@@ -168,38 +246,16 @@ class MState extends State<App> {
               Text(current['desc'], maxLines: 12, overflow: TextOverflow.fade),
               sb(16.0),
               Text('Related:', style: tt.subtitle),
-              relatedRow(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: (current["ref"] as List).map(smallCard).toList(),
+              ),
               sb(16.0),
               FittedBox(child: Text('Source: ${current['source']}')),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Widget drawer() {
-    return Drawer(
-      child: Container(
-        color: Color(0xFFB3E5FC),
-        child: ListView(
-          children: [
-            Text('Catalog:', style: tt.display1, textAlign: TextAlign.center),
-            Divider(),
-          ]..addAll(map.values.map(drawerItem)),
-        ),
-      ),
-    );
-  }
-
-  Widget drawerItem(Map cell) {
-    return ListTile(
-      leading: img(cell['img'], 40.0),
-      title: Text(cell['name']),
-      onTap: () {
-        goTo(cell['id']);
-        Navigator.of(context).pop();
-      },
     );
   }
 }
