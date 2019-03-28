@@ -30,7 +30,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/organellas.json
+    - data.json
     - assets/animal_cell.flr
     - assets/mitoch.flr
     - assets/vacu.flr
@@ -44,4 +44,17 @@ flutter:
     - assets/microtubule.flr
     - assets/plant_cell.flr
     - assets/chloroplast.flr
-    - assets/background.jpg
+    - assets/bcg.jpg
+  fonts:
+    - family: mc
+      fonts:
+        - asset: fonts/microbiology.ttf
+    - family: codon
+      fonts:
+        - asset: fonts/codon.ttf
+    - family: bg
+      fonts:
+        - asset: fonts/biology.ttf
+    - family: lt
+      fonts:
+        - asset: fonts/Lato-Regular.ttf
