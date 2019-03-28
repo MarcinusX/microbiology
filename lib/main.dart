@@ -172,6 +172,7 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
   Widget get mainPreview => GestureDetector(
         behavior: HitTestBehavior.opaque,
         onScaleStart: (d) {
+          baseZoom = zoom;
           startTranslate = translate;
           zoomStart = d.focalPoint;
         },
@@ -181,7 +182,6 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
             translate = startTranslate + d.focalPoint - zoomStart;
           });
         },
-        onScaleEnd: (d) => baseZoom = zoom,
         child: Center(
           child: Transform.translate(
             offset: translate,
