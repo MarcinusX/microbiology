@@ -1,12 +1,5 @@
-name: deleteit
-description: A new Flutter project.
-
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# Read more about versioning at semver.org.
+name: Microbiology101
+description: Learning microbiology made fun.
 version: 1.0.0+1
 
 environment:
@@ -15,22 +8,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flare_flutter: ^1.3.2
-  backdrop: ^0.1.8
+  flare_flutter: 1.3.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
-# For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
-
-# The following section is specific to Flutter.
 flutter:
   uses-material-design: true
   assets:
     - data.json
+    - assets/bcg.jpg
     - assets/animal_cell.flr
     - assets/mitoch.flr
     - assets/vacu.flr
@@ -44,7 +32,14 @@ flutter:
     - assets/microtubule.flr
     - assets/plant_cell.flr
     - assets/chloroplast.flr
-    - assets/bcg.jpg
+    - assets/bacterial.flr
+    - assets/pilus1.flr
+    - assets/pilus2.flr
+    - assets/pilus3.flr
+    - assets/pilus4.flr
+    - assets/flagellum.flr
+    - assets/dna.flr
+    - assets/plasmid.flr
   fonts:
     - family: mc
       fonts:

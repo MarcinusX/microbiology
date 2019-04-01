@@ -1,4 +1,4 @@
-package com.example.deleteit;
+package com.fidev.microbiology;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

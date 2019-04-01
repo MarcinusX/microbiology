@@ -16,7 +16,7 @@ class App extends StatefulWidget {
 class MState extends State<App> with SingleTickerProviderStateMixin {
   Map data;
   List<String> history = [];
-  String currentId = 'animal';
+  String currentId = 'bacteria';
   Offset translate = Offset(0, 0);
   Offset startTranslate;
   Offset zoomStart;

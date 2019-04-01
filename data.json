@@ -266,7 +266,8 @@
         "left": 0.7,
         "top": 0.2,
         "size": 0.08
-      },{
+      },
+      {
         "id": "chloroplast",
         "left": 0.6,
         "top": 0.3,
@@ -445,6 +446,293 @@
     "top": 0.0,
     "size": 1.0,
     "desc": "The mitochondrion (plural mitochondria) is a double-membrane-bound organelle found in most eukaryotic organisms. Some cells in some multicellular organisms may, however, lack them (for example, mature mammalian red blood cells). A number of unicellular organisms, such as microsporidia, parabasalids, and diplomonads, have also reduced or transformed their mitochondria into other structures. To date, only one eukaryote, Monocercomonoides, is known to have completely lost its mitochondria.",
+    "children": []
+  },
+  "bacteria": {
+    "id": "bacteria",
+    "img": "assets/bacterial.flr",
+    "name": "Bacterial cell",
+    "animation": "idle",
+    "ref": [
+      "pilus1",
+      "vacuole",
+      "lysosome"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Bacterial_cell_structure",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "The bacterium, despite its simplicity, contains a well-developed cell structure which is responsible for some of its unique biological structures and pathogenicity. Many structural features are unique to bacteria and are not found among archaea or eukaryotes. Because of the simplicity of bacteria relative to larger organisms and the ease with which they can be manipulated experimentally, the cell structure of bacteria has been well studied, revealing many biochemical principles that have been subsequently applied to other organisms.",
+    "children": [
+      {
+        "id": "flagellum",
+        "left": -0.22,
+        "top": 0.06,
+        "size": 0.8
+      },
+      {
+        "id": "dna",
+        "left": 0.38,
+        "top": 0.28,
+        "size": 0.4
+      },
+      {
+        "id": "plasmid",
+        "left": 0.3,
+        "top": 0.64,
+        "size": 0.04
+      },
+      {
+        "id": "plasmid",
+        "left": 0.4,
+        "top": 0.35,
+        "size": 0.08
+      },
+      {
+        "id": "plasmid",
+        "left": 0.8,
+        "top": 0.4,
+        "size": 0.06
+      },
+      {
+        "id": "plasmid",
+        "left": 0.6,
+        "top": 0.6,
+        "size": 0.08
+      },
+      {
+        "id": "ribosome",
+        "left": 0.6,
+        "top": 0.25,
+        "size": 0.03
+      },      {
+        "id": "ribosome",
+        "left": 0.8,
+        "top": 0.3,
+        "size": 0.03
+      },      {
+        "id": "ribosome",
+        "left": 0.7,
+        "top": 0.5,
+        "size": 0.03
+      },      {
+        "id": "ribosome",
+        "left": 0.5,
+        "top": 0.7,
+        "size": 0.03
+      },      {
+        "id": "ribosome",
+        "left": 0.3,
+        "top": 0.5,
+        "size": 0.03
+      },      {
+        "id": "ribosome",
+        "left": 0.35,
+        "top": 0.67,
+        "size": 0.03
+      },      {
+        "id": "ribosome",
+        "left": 0.75,
+        "top": 0.25,
+        "size": 0.03
+      },
+      {
+        "id": "pilus1",
+        "left": 0.79,
+        "top": 0.6,
+        "size": 0.1
+      },
+      {
+        "id": "pilus1",
+        "left": 0.67,
+        "top": 0.72,
+        "size": 0.1
+      },
+      {
+        "id": "pilus1",
+        "left": 0.4,
+        "top": 0.16,
+        "size": 0.1
+      },
+      {
+        "id": "pilus1",
+        "left": 0.25,
+        "top": 0.29,
+        "size": 0.1
+      },
+      {
+        "id": "pilus2",
+        "left": 0.5,
+        "top": 0.8,
+        "size": 0.1
+      },
+      {
+        "id": "pilus2",
+        "left": 0.77,
+        "top": 0.07,
+        "size": 0.1
+      },
+      {
+        "id": "pilus2",
+        "left": 0.59,
+        "top": 0.09,
+        "size": 0.1
+      },
+      {
+        "id": "pilus3",
+        "left": 0.14,
+        "top": 0.6,
+        "size": 0.1
+      },
+      {
+        "id": "pilus3",
+        "left": 0.16,
+        "top": 0.45,
+        "size": 0.1
+      },
+      {
+        "id": "pilus3",
+        "left": 0.9,
+        "top": 0.45,
+        "size": 0.1
+      },
+      {
+        "id": "pilus3",
+        "left": 0.95,
+        "top": 0.25,
+        "size": 0.1
+      },
+      {
+        "id": "pilus4",
+        "left": 0.9,
+        "top": 0.14,
+        "size": 0.1
+      },
+      {
+        "id": "pilus4",
+        "left": 0.33,
+        "top": 0.79,
+        "size": 0.1
+      }
+    ]
+  },
+  "flagellum": {
+    "id": "flagellum",
+    "img": "assets/flagellum.flr",
+    "name": "Flagellum",
+    "animation": "idle",
+    "ref": [
+      "pilus1",
+      "vacuole",
+      "lysosome"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Pilus",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
+    "children": []
+  },
+  "plasmid": {
+    "id": "plasmid",
+    "img": "assets/plasmid.flr",
+    "name": "Plasmid",
+    "animation": "idle",
+    "ref": [
+      "dna",
+      "bacteria",
+      "ribosome"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Plasmid",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "A plasmid is a small DNA molecule within a cell that is physically separated from chromosomal DNA and can replicate independently. They are most commonly found as small circular, double-stranded DNA molecules in bacteria; however, plasmids are sometimes present in archaea and eukaryotic organisms. In nature, plasmids often carry genes that benefit the survival of the organism, such as by providing antibiotic resistance.",
+    "children": []
+  },
+  "dna": {
+    "id": "dna",
+    "img": "assets/dna.flr",
+    "name": "Nucleoid (DNA)",
+    "animation": "idle",
+    "ref": [
+      "plasmid",
+      "bacteria",
+      "nucleus"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Nucleoid",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "The nucleoid (meaning nucleus-like) is an irregularly shaped region within the cell of a prokaryote that contains all or most of the genetic material, called genophore. In contrast to the nucleus of a eukaryotic cell, it is not surrounded by a nuclear membrane. The genome of prokaryotic organisms generally is a circular, double-stranded piece of DNA, of which multiple copies may exist at any time. The length of a genome widely varies, but generally is at least a few million base pairs.",
+    "children": []
+  },
+  "pilus1": {
+    "id": "pilus1",
+    "img": "assets/pilus1.flr",
+    "name": "Pilus",
+    "animation": "idle",
+    "ref": [
+      "pilus1",
+      "vacuole",
+      "lysosome"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Pilus",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
+    "children": []
+  },
+  "pilus2": {
+    "id": "pilus2",
+    "img": "assets/pilus2.flr",
+    "name": "Pilus",
+    "animation": "idle",
+    "ref": [
+      "pilus1",
+      "vacuole",
+      "lysosome"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Pilus",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
+    "children": []
+  },
+  "pilus3": {
+    "id": "pilus3",
+    "img": "assets/pilus3.flr",
+    "name": "Pilus",
+    "animation": "idle",
+    "ref": [
+      "pilus1",
+      "vacuole",
+      "lysosome"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Pilus",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
+    "children": []
+  },
+  "pilus4": {
+    "id": "pilus4",
+    "img": "assets/pilus4.flr",
+    "name": "Pilus",
+    "animation": "idle",
+    "ref": [
+      "pilus1",
+      "vacuole",
+      "lysosome"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Pilus",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
     "children": []
   },
   "vacuole": {
