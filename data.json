@@ -6,7 +6,7 @@
     "ref": [
       "animal",
       "plant_cell",
-      "bacteria",
+      "bacteria"
     ],
     "source": "Just tap on anything! :)",
     "left": 0.0,
@@ -150,12 +150,6 @@
         "left": 0.2,
         "top": 0.4,
         "size": 0.4
-      },
-      {
-        "id": "nucleolus",
-        "left": 0.35,
-        "top": 0.5,
-        "size": 0.15
       },
       {
         "id": "golgi",
@@ -317,12 +311,6 @@
         "left": 0.3,
         "top": 0.3,
         "size": 0.25
-      },
-      {
-        "id": "nucleolus",
-        "left": 0.4,
-        "top": 0.4,
-        "size": 0.1
       },
       {
         "id": "reticulum",
@@ -544,12 +532,6 @@
         "left": 0.5,
         "top": 0.2,
         "size": 0.25
-      },
-      {
-        "id": "nucleolus",
-        "left": 0.6,
-        "top": 0.3,
-        "size": 0.1
       },
       {
         "id": "reticulum",
@@ -900,7 +882,7 @@
     "name": "Mitochondria",
     "ref": [
       "animal",
-      "bacteria",
+      "mitoch_matrix",
       "ribosome"
     ],
     "source": "https://en.wikipedia.org/wiki/Mitochondrion",
@@ -908,6 +890,29 @@
     "top": 0.0,
     "size": 1.0,
     "desc": "The mitochondrion (plural mitochondria) is a double-membrane-bound organelle found in most eukaryotic organisms. Some cells in some multicellular organisms may, however, lack them (for example, mature mammalian red blood cells). A number of unicellular organisms, such as microsporidia, parabasalids, and diplomonads, have also reduced or transformed their mitochondria into other structures. To date, only one eukaryote, Monocercomonoides, is known to have completely lost its mitochondria.",
+    "children": [
+      {
+        "id": "mitoch_matrix",
+        "top": 0.1,
+        "left": 0.1,
+        "size": 0.8
+      }
+    ]
+  },
+  "mitoch_matrix": {
+    "id": "mitoch_matrix",
+    "img": "assets/mitoch_matrix.flr",
+    "name": "Matrix",
+    "ref": [
+      "mitochondria",
+      "animal",
+      "dna"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Mitochondrial_matrix",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "In the mitochondrion, the matrix is the space within the inner membrane. The word \"matrix\" stems from the fact that this space is viscous, compared to the relatively aqueous cytoplasm. The mitochondrial matrix contains the mitochondria's DNA, ribosomes, soluble enzymes, small organic molecules, nucleotide cofactors, and inorganic ions. The enzymes in the matrix facilitate reactions responsible for the production of ATP, such as the citric acid cycle, oxidative phosphorylation, oxidation of pyruvate and the beta oxidation of fatty acids.",
     "children": []
   },
   "plasmid": {
@@ -988,7 +993,74 @@
     "top": 0.0,
     "size": 1.0,
     "desc": "A lysosome is a membrane-bound organelle found in many animal cells and most plant cells. They are spherical vesicles that contain hydrolytic enzymes that can break down many kinds of biomolecules. A lysosome has a specific composition, of both its membrane proteins, and its lumenal proteins. The lumen's pH (4.5–5.0) is optimal for the enzymes involved in hydrolysis, analogous to the activity of the stomach. Besides degradation of polymers, the lysosome is involved in various cell processes, including secretion, plasma membrane repair, cell signaling, and energy metabolism.",
-    "children": []
+    "children": [
+      {
+        "id": "enzyme",
+        "left": 0.3,
+        "top": 0.3,
+        "size": 0.1
+      },
+      {
+        "id": "enzyme",
+        "left": 0.5,
+        "top": 0.7,
+        "size": 0.15
+      },
+      {
+        "id": "enzyme",
+        "left": 0.1,
+        "top": 0.4,
+        "size": 0.13
+      },
+      {
+        "id": "enzyme",
+        "left": 0.6,
+        "top": 0.2,
+        "size": 0.09
+      },
+      {
+        "id": "enzyme",
+        "left": 0.5,
+        "top": 0.8,
+        "size": 0.1
+      },
+      {
+        "id": "enzyme",
+        "left": 0.2,
+        "top": 0.65,
+        "size": 0.1
+      },
+      {
+        "id": "enzyme",
+        "left": 0.6,
+        "top": 0.6,
+        "size": 0.1
+      },
+      {
+        "id": "enzyme",
+        "left": 0.45,
+        "top": 0.45,
+        "size": 0.1
+      },
+      {
+        "id": "enzyme",
+        "left": 0.25,
+        "top": 0.8,
+        "size": 0.1
+      },
+      {
+        "id": "enzyme",
+        "left": 0.4,
+        "top": 0.1,
+        "size": 0.1
+      },
+      {
+        "id": "enzyme",
+        "left": 0.7,
+        "top": 0.4,
+        "size": 0.1
+      }
+    ]
   },
   "flagellum": {
     "id": "flagellum",
@@ -1052,7 +1124,14 @@
     "top": 0.0,
     "size": 1.0,
     "desc": "In cell biology, the nucleus is a membrane-bound organelle found in eukaryotic cells. Eukaryotes usually have a single nucleus, but a few cell types, such as mammalian red blood cells, have no nuclei, and a few others including osteoclasts have many. The cell nucleus contains all of the cell's genome, except for a small fraction of mitochondrial DNA, organized as multiple long linear DNA molecules in a complex with a large variety of proteins, such as histones, to form chromosomes.",
-    "children": []
+    "children": [
+      {
+        "id": "nucleolus",
+        "left": 0.4,
+        "top": 0.35,
+        "size": 0.4
+      }
+    ]
   },
   "nucleolus": {
     "id": "nucleolus",
@@ -1068,7 +1147,8 @@
     "top": 0.0,
     "size": 1.0,
     "desc": "The nucleolus is the largest structure in the nucleus of eukaryotic cells. It is best known as the site of ribosome biogenesis. Nucleoli also participate in the formation of signal recognition particles and play a role in the cell's response to stress. Nucleoli are made of proteins, DNA and RNA and form around specific chromosomal regions called nucleolar organizing regions. Malfunction of nucleoli can be the cause of several human conditions called \"nucleolopathies\" and the nucleolus is being investigated as a target for cancer chemotherapy.",
-    "children": []
+    "children": [
+    ]
   },
   "golgi": {
     "id": "golgi",
@@ -1139,7 +1219,7 @@
     "img": "assets/chloroplast.flr",
     "name": "Chloroplast",
     "ref": [
-      "mitochondria",
+      "thylakoid",
       "vacuole",
       "plant_cell"
     ],
@@ -1148,6 +1228,117 @@
     "top": 0.0,
     "size": 1.0,
     "desc": "Chloroplasts are organelles that conduct photosynthesis, where the photosynthetic pigment chlorophyll captures the energy from sunlight, converts it, and stores it in the energy-storage molecules ATP and NADPH while freeing oxygen from water in plant and algal cells. They then use the ATP and NADPH to make organic molecules from carbon dioxide in a process known as the Calvin cycle. The number of chloroplasts per cell varies from one, in unicellular algae, up to 100 in plants like Arabidopsis and wheat.",
+    "children": [
+      {
+        "id": "thylakoid",
+        "top": 0.2,
+        "left": 0.2,
+        "size": 0.1
+      },
+      {
+        "id": "thylakoid",
+        "top": 0.15,
+        "left": 0.3,
+        "size": 0.1
+      },
+      {
+        "id": "thylakoid",
+        "top": 0.3,
+        "left": 0.25,
+        "size": 0.1
+      },
+      {
+        "id": "thylakoid",
+        "top": 0.3,
+        "left": 0.45,
+        "size": 0.1
+      },
+      {
+        "id": "thylakoid",
+        "top": 0.4,
+        "left": 0.6,
+        "size": 0.1
+      },
+      {
+        "id": "thylakoid",
+        "top": 0.7,
+        "left": 0.7,
+        "size": 0.1
+      },
+      {
+        "id": "thylakoid",
+        "top": 0.45,
+        "left": 0.3,
+        "size": 0.1
+      },
+      {
+        "id": "thylakoid",
+        "top": 0.5,
+        "left": 0.6,
+        "size": 0.1
+      },
+      {
+        "id": "thylakoid",
+        "top": 0.6,
+        "left": 0.45,
+        "size": 0.1
+      },
+      {
+        "id": "thylakoid",
+        "top": 0.5,
+        "left": 0.4,
+        "size": 0.1
+      },
+      {
+        "id": "thylakoid",
+        "top": 0.6,
+        "left": 0.7,
+        "size": 0.1
+      },
+      {
+        "id": "thylakoid",
+        "top": 0.7,
+        "left": 0.5,
+        "size": 0.1
+      },
+      {
+        "id": "thylakoid",
+        "top": 0.8,
+        "left": 0.75,
+        "size": 0.1
+      }
+    ]
+  },
+  "thylakoid": {
+    "id": "thylakoid",
+    "img": "assets/thylakoid.flr",
+    "name": "Thylakoid",
+    "ref": [
+      "vacuole",
+      "plant_cell",
+      "chloroplast"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Thylakoid",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "A thylakoid is a membrane-bound compartment inside chloroplasts and cyanobacteria. They are the site of the light-dependent reactions of photosynthesis. Thylakoids consist of a thylakoid membrane surrounding a thylakoid lumen. Chloroplast thylakoids frequently form stacks of disks referred to as grana (singular: granum). Grana are connected by intergranal or stroma thylakoids, which join granum stacks together as a single functional compartment.",
+    "children": []
+  },
+  "enzyme": {
+    "id": "enzyme",
+    "img": "assets/enzyme.flr",
+    "name": "Enzyme",
+    "ref": [
+      "animal",
+      "ribosome",
+      "lysosome"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Enzyme",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "Enzymes are macromolecular biological catalysts. Enzymes accelerate chemical reactions. The molecules upon which enzymes may act are called substrates and the enzyme converts the substrates into different molecules known as products. Almost all metabolic processes in the cell need enzyme catalysis in order to occur at rates fast enough to sustain life. Metabolic pathways depend upon enzymes to catalyze individual steps.",
     "children": []
   }
 }

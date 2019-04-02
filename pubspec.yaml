@@ -21,6 +21,7 @@ flutter:
     - bcg.jpg
     - assets/animal_cell.flr
     - assets/mitoch.flr
+    - assets/mitoch_matrix.flr
     - assets/vacu.flr
     - assets/lysosome.flr
     - assets/centrosome.flr
@@ -32,6 +33,7 @@ flutter:
     - assets/microtubule.flr
     - assets/plant_cell.flr
     - assets/chloroplast.flr
+    - assets/thylakoid.flr
     - assets/bacterial.flr
     - assets/pilus1.flr
     - assets/pilus2.flr
@@ -43,3 +45,4 @@ flutter:
     - assets/menu.flr
     - assets/fungus.flr
     - assets/bud.flr
+    - assets/enzyme.flr
