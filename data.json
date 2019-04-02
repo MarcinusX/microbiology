@@ -2,18 +2,18 @@
   "menu": {
     "id": "menu",
     "img": "assets/menu.flr",
-    "name": "Animal cell",
-    "animation": "idle",
+    "name": "About the app",
     "ref": [
-      "mitochondria",
-      "vacuole",
-      "lysosome"
+      "animal",
+      "plant_cell",
+      "bacteria",
+      "fungus"
     ],
-    "source": "https://www.thoughtco.com/all-about-animal-cells-373379",
+    "source": "Just tap on anything! :)",
     "left": 0.0,
     "top": 0.0,
     "size": 1.0,
-    "desc": "Animal cells are eukaryotic cells or cells with a membrane-bound nucleus. Unlike prokaryotic cells, DNA in animal cells is housed within the nucleus. In addition to having a nucleus, animal cells also contain other membrane-bound organelles, or tiny cellular structures, that carry out specific functions necessary for normal cellular operation. Organelles have a wide range of responsibilities that include everything from producing hormones and enzymes to providing energy for animal cells.",
+    "desc": "Biology dive is a simple way to get the basics of microbiology in a interactive and entertaining way. You can see the structure of popular cells and dive deep into their organellas (elements of the cell). Get closer to the details of microbiology by tapping on elements and reading cards appearing on the bottom of the screen (like this one).\n\nHave fun and learn!\nMarcin Szalek",
     "children": [
       {
         "id": "animal",
@@ -32,6 +32,12 @@
         "left": 0.0,
         "top": 0.5,
         "size": 0.5
+      },
+      {
+        "id": "fungus",
+        "left": 0.5,
+        "top": 0.5,
+        "size": 0.5
       }
     ]
   },
@@ -39,11 +45,10 @@
     "id": "pilus2",
     "img": "assets/pilus2.flr",
     "name": "Pilus",
-    "animation": "idle",
     "ref": [
-      "pilus1",
-      "vacuole",
-      "lysosome"
+      "bacteria",
+      "flagellum",
+      "dna"
     ],
     "source": "https://en.wikipedia.org/wiki/Pilus",
     "left": 0.0,
@@ -56,11 +61,10 @@
     "id": "pilus3",
     "img": "assets/pilus3.flr",
     "name": "Pilus",
-    "animation": "idle",
     "ref": [
-      "pilus1",
-      "vacuole",
-      "lysosome"
+      "bacteria",
+      "flagellum",
+      "dna"
     ],
     "source": "https://en.wikipedia.org/wiki/Pilus",
     "left": 0.0,
@@ -73,11 +77,10 @@
     "id": "pilus4",
     "img": "assets/pilus4.flr",
     "name": "Pilus",
-    "animation": "idle",
     "ref": [
-      "pilus1",
-      "vacuole",
-      "lysosome"
+      "bacteria",
+      "flagellum",
+      "dna"
     ],
     "source": "https://en.wikipedia.org/wiki/Pilus",
     "left": 0.0,
@@ -90,11 +93,10 @@
     "id": "animal",
     "img": "assets/animal_cell.flr",
     "name": "Animal cell",
-    "animation": "idle",
     "ref": [
       "mitochondria",
-      "vacuole",
-      "lysosome"
+      "centrosome",
+      "microtubule"
     ],
     "source": "https://www.thoughtco.com/all-about-animal-cells-373379",
     "left": 0.0,
@@ -294,11 +296,10 @@
     "id": "plant_cell",
     "img": "assets/plant_cell.flr",
     "name": "Plant cell",
-    "animation": "idle",
     "ref": [
       "animal",
       "vacuole",
-      "chloroplast"
+      "golgi"
     ],
     "source": "https://en.wikipedia.org/wiki/Plant_cell",
     "left": 0.0,
@@ -518,32 +519,217 @@
       }
     ]
   },
-  "mitochondria": {
-    "id": "mitochondria",
-    "img": "assets/mitoch.flr",
-    "name": "Mitochondria",
-    "animation": "idle",
+  "fungus": {
+    "id": "fungus",
+    "img": "assets/fungus.flr",
+    "name": "Fungus",
     "ref": [
-      "animal",
-      "vacuole",
-      "lysosome"
+      "mitochondria",
+      "bud",
+      "ribosome"
     ],
-    "source": "https://en.wikipedia.org/wiki/Mitochondrion",
+    "source": "https://en.wikipedia.org/wiki/Fungus",
     "left": 0.0,
     "top": 0.0,
     "size": 1.0,
-    "desc": "The mitochondrion (plural mitochondria) is a double-membrane-bound organelle found in most eukaryotic organisms. Some cells in some multicellular organisms may, however, lack them (for example, mature mammalian red blood cells). A number of unicellular organisms, such as microsporidia, parabasalids, and diplomonads, have also reduced or transformed their mitochondria into other structures. To date, only one eukaryote, Monocercomonoides, is known to have completely lost its mitochondria.",
-    "children": []
+    "desc": "A fungus is any member of the group of eukaryotic organisms that includes microorganisms such as yeasts and molds, as well as the more familiar mushrooms. These organisms are classified as a kingdom, fungi, which is separate from the other eukaryotic life kingdoms of plants and animals. A characteristic that places fungi in a different kingdom from plants, bacteria, and some protists is chitin in their cell walls. Similar to animals, fungi are heterotrophs; they acquire their food by absorbing dissolved molecules.",
+    "children": [
+      {
+        "id": "vacuole",
+        "left": 0.1,
+        "top": 0.3,
+        "size": 0.3
+      },
+      {
+        "id": "nucleus",
+        "left": 0.5,
+        "top": 0.2,
+        "size": 0.25
+      },
+      {
+        "id": "nucleolus",
+        "left": 0.6,
+        "top": 0.3,
+        "size": 0.1
+      },
+      {
+        "id": "reticulum",
+        "left": 0.65,
+        "top": 0.16,
+        "size": 0.15
+      },
+      {
+        "id": "mitochondria",
+        "left": 0.4,
+        "top": 0.4,
+        "size": 0.1
+      },
+      {
+        "id": "mitochondria",
+        "left": 0.2,
+        "top": 0.68,
+        "size": 0.12
+      },
+      {
+        "id": "mitochondria",
+        "left": 0.5,
+        "top": 0.1,
+        "size": 0.08
+      },
+      {
+        "id": "mitochondria",
+        "left": 0.7,
+        "top": 0.6,
+        "size": 0.08
+      },
+      {
+        "id": "mitochondria",
+        "left": 0.8,
+        "top": 0.3,
+        "size": 0.08
+      },
+      {
+        "id": "golgi",
+        "left": 0.35,
+        "top": 0.65,
+        "size": 0.25
+      },
+      {
+        "id": "ribosome",
+        "left": 0.65,
+        "top": 0.52,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.2,
+        "top": 0.6,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.16,
+        "top": 0.62,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.21,
+        "top": 0.64,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.41,
+        "top": 0.65,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.51,
+        "top": 0.61,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.47,
+        "top": 0.55,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.20,
+        "top": 0.3,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.65,
+        "top": 0.7,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.76,
+        "top": 0.3,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.67,
+        "top": 0.2,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.7,
+        "top": 0.16,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.73,
+        "top": 0.18,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.75,
+        "top": 0.2,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.69,
+        "top": 0.18,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.71,
+        "top": 0.2,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.4,
+        "top": 0.2,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.44,
+        "top": 0.24,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.6,
+        "top": 0.5,
+        "size": 0.03
+      },
+      {
+        "id": "ribosome",
+        "left": 0.82,
+        "top": 0.42,
+        "size": 0.03
+      },
+      {
+        "id": "bud",
+        "left": 0.11,
+        "top": 0.78,
+        "size": 0.2
+      }
+    ]
   },
   "bacteria": {
     "id": "bacteria",
     "img": "assets/bacterial.flr",
     "name": "Bacterial cell",
-    "animation": "idle",
     "ref": [
       "pilus1",
-      "vacuole",
-      "lysosome"
+      "dna",
+      "plasmid"
     ],
     "source": "https://en.wikipedia.org/wiki/Bacterial_cell_structure",
     "left": 0.0,
@@ -709,32 +895,30 @@
       }
     ]
   },
-  "flagellum": {
-    "id": "flagellum",
-    "img": "assets/flagellum.flr",
-    "name": "Flagellum",
-    "animation": "idle",
+  "mitochondria": {
+    "id": "mitochondria",
+    "img": "assets/mitoch.flr",
+    "name": "Mitochondria",
     "ref": [
-      "pilus1",
-      "vacuole",
-      "lysosome"
+      "animal",
+      "bacteria",
+      "ribosome"
     ],
-    "source": "https://en.wikipedia.org/wiki/Pilus",
+    "source": "https://en.wikipedia.org/wiki/Mitochondrion",
     "left": 0.0,
     "top": 0.0,
     "size": 1.0,
-    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
+    "desc": "The mitochondrion (plural mitochondria) is a double-membrane-bound organelle found in most eukaryotic organisms. Some cells in some multicellular organisms may, however, lack them (for example, mature mammalian red blood cells). A number of unicellular organisms, such as microsporidia, parabasalids, and diplomonads, have also reduced or transformed their mitochondria into other structures. To date, only one eukaryote, Monocercomonoides, is known to have completely lost its mitochondria.",
     "children": []
   },
   "plasmid": {
     "id": "plasmid",
     "img": "assets/plasmid.flr",
     "name": "Plasmid",
-    "animation": "idle",
     "ref": [
-      "dna",
+      "ribosome",
       "bacteria",
-      "ribosome"
+      "dna"
     ],
     "source": "https://en.wikipedia.org/wiki/Plasmid",
     "left": 0.0,
@@ -747,7 +931,6 @@
     "id": "dna",
     "img": "assets/dna.flr",
     "name": "Nucleoid (DNA)",
-    "animation": "idle",
     "ref": [
       "plasmid",
       "bacteria",
@@ -764,11 +947,10 @@
     "id": "pilus1",
     "img": "assets/pilus1.flr",
     "name": "Pilus",
-    "animation": "idle",
     "ref": [
-      "pilus1",
-      "vacuole",
-      "lysosome"
+      "bacteria",
+      "flagellum",
+      "dna"
     ],
     "source": "https://en.wikipedia.org/wiki/Pilus",
     "left": 0.0,
@@ -781,11 +963,10 @@
     "id": "vacuole",
     "img": "assets/vacu.flr",
     "name": "Vacuole",
-    "animation": "idle",
     "ref": [
       "mitochondria",
-      "animal",
-      "lysosome"
+      "fungus",
+      "plant_cell"
     ],
     "source": "https://en.wikipedia.org/wiki/Vacuole",
     "left": 0.0,
@@ -798,9 +979,8 @@
     "id": "lysosome",
     "img": "assets/lysosome.flr",
     "name": "Lysosome",
-    "animation": "idle",
     "ref": [
-      "mitochondria",
+      "centrosome",
       "vacuole",
       "animal"
     ],
@@ -811,14 +991,29 @@
     "desc": "A lysosome is a membrane-bound organelle found in many animal cells and most plant cells. They are spherical vesicles that contain hydrolytic enzymes that can break down many kinds of biomolecules. A lysosome has a specific composition, of both its membrane proteins, and its lumenal proteins. The lumen's pH (4.5–5.0) is optimal for the enzymes involved in hydrolysis, analogous to the activity of the stomach. Besides degradation of polymers, the lysosome is involved in various cell processes, including secretion, plasma membrane repair, cell signaling, and energy metabolism.",
     "children": []
   },
+  "flagellum": {
+    "id": "flagellum",
+    "img": "assets/flagellum.flr",
+    "name": "Flagellum",
+    "ref": [
+      "pilus1",
+      "bacteria",
+      "mitochondria"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Pilus",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
+    "children": []
+  },
   "centrosome": {
     "id": "centrosome",
     "img": "assets/centrosome.flr",
     "name": "Centrosome",
-    "animation": "idle",
     "ref": [
       "mitochondria",
-      "vacuole",
+      "lysosome",
       "animal"
     ],
     "source": "https://en.wikipedia.org/wiki/Centrosome",
@@ -828,13 +1023,28 @@
     "desc": "In cell biology, the centrosome (Latin centrum 'center' + Greek sōma 'body') is an organelle that serves as the main microtubule organizing center (MTOC) of the animal cell, as well as a regulator of cell-cycle progression. The centrosome is thought to have evolved only in the metazoan lineage of eukaryotic cells. Fungi and plants lack centrosomes and therefore use structures other than MTOCs to organize their microtubules. Although the centrosome has a key role in efficient mitosis in animal cells, it is not essential in certain fly and flatworm species.",
     "children": []
   },
+  "bud": {
+    "id": "bud",
+    "img": "assets/bud.flr",
+    "name": "Bud scar",
+    "ref": [
+      "fungus",
+      "mitochondria",
+      "nucleolus"
+    ],
+    "source": "https://www.yeastgenome.org/go/GO:0005621",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "Crater-like ring of chitinous scar tissue located on the surface of the mother cell. It is formed after the newly emerged daughter cell separates thereby marking the site of cytokinesis and septation. The number of bud scars that accumulate on the surface of a cell is a useful determinant of replicative age.",
+    "children": []
+  },
   "nucleus": {
     "id": "nucleus",
     "img": "assets/nucleus.flr",
     "name": "Nucleus",
-    "animation": "idle",
     "ref": [
-      "mitochondria",
+      "plant_cell",
       "nucleolus",
       "animal"
     ],
@@ -842,18 +1052,17 @@
     "left": 0.0,
     "top": 0.0,
     "size": 1.0,
-    "desc": "In cell biology, the  nucleus is a membrane-bound organelle found in eukaryotic cells. Eukaryotes usually have a single nucleus, but a few cell types, such as mammalian red blood cells, have no nuclei, and a few others including osteoclasts have many. The cell nucleus contains all of the cell's genome, except for a small fraction of mitochondrial DNA, organized as multiple long linear DNA molecules in a complex with a large variety of proteins, such as histones, to form chromosomes.",
+    "desc": "In cell biology, the nucleus is a membrane-bound organelle found in eukaryotic cells. Eukaryotes usually have a single nucleus, but a few cell types, such as mammalian red blood cells, have no nuclei, and a few others including osteoclasts have many. The cell nucleus contains all of the cell's genome, except for a small fraction of mitochondrial DNA, organized as multiple long linear DNA molecules in a complex with a large variety of proteins, such as histones, to form chromosomes.",
     "children": []
   },
   "nucleolus": {
     "id": "nucleolus",
     "img": "assets/nucleolus.flr",
     "name": "Nucleolus",
-    "animation": "idle",
     "ref": [
       "mitochondria",
       "nucleus",
-      "animal"
+      "fungus"
     ],
     "source": "https://en.wikipedia.org/wiki/Cell_nucleus",
     "left": 0.0,
@@ -866,11 +1075,10 @@
     "id": "golgi",
     "img": "assets/golgi apparatus.flr",
     "name": "Golgi apparatus",
-    "animation": "idle",
     "ref": [
-      "mitochondria",
-      "nucleus",
-      "animal"
+      "ribosome",
+      "nucleolus",
+      "reticulum"
     ],
     "source": "https://en.wikipedia.org/wiki/Golgi_apparatus",
     "left": 0.0,
@@ -883,11 +1091,10 @@
     "id": "reticulum",
     "img": "assets/reticulum.flr",
     "name": "Endoplasmic reticulum",
-    "animation": "idle",
     "ref": [
-      "mitochondria",
+      "golgi",
       "nucleus",
-      "animal"
+      "ribosome"
     ],
     "source": "https://en.wikipedia.org/wiki/Endoplasmic_reticulum",
     "left": 0.0,
@@ -900,11 +1107,10 @@
     "id": "ribosome",
     "img": "assets/ribosome.flr",
     "name": "Ribosome",
-    "animation": "idle",
     "ref": [
       "mitochondria",
       "nucleus",
-      "animal"
+      "reticulum"
     ],
     "source": "https://en.wikipedia.org/wiki/ribosome",
     "left": 0.0,
@@ -917,11 +1123,10 @@
     "id": "microtubule",
     "img": "assets/microtubule.flr",
     "name": "Microtubule",
-    "animation": "idle",
     "ref": [
-      "mitochondria",
-      "nucleus",
-      "animal"
+      "animal",
+      "reticulum",
+      "plant_cell"
     ],
     "source": "https://en.wikipedia.org/wiki/Microtubule",
     "left": 0.0,
@@ -934,7 +1139,6 @@
     "id": "chloroplast",
     "img": "assets/chloroplast.flr",
     "name": "Chloroplast",
-    "animation": "idle",
     "ref": [
       "mitochondria",
       "vacuole",

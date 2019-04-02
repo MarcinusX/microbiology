@@ -5,9 +5,7 @@ import 'dart:math';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
-const box8 = SizedBox(height: 8);
-
-main() => runApp(MaterialApp(home: App(), title: 'Deep Biology'));
+main() => runApp(MaterialApp(home: App(), title: 'Biology dive'));
 
 class App extends StatefulWidget {
   MState createState() => MState();
@@ -17,16 +15,17 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
   Map data;
   List<String> history = [];
   String currentId = 'menu';
-  Offset translate = Offset(0, 0);
+  Offset translate = Offset.zero;
   Offset startTranslate;
   Offset zoomStart;
   double baseZoom = 1;
   double zoom = 1;
-  double botOffset = 400;
+  double botOffset = 380;
+  double opacity = 1;
   AnimationController transCtrl;
-  ScrollController scrlCtrl = ScrollController();
   Timer timer;
   int scrollDirection = 1;
+  var scrlCtrl = ScrollController();
 
   Map get current => data[currentId];
 
@@ -40,10 +39,10 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
 
   img(name, [size]) => sb(size, FlareActor(name, animation: 'idle'));
 
-  pad8(child) => Padding(padding: const EdgeInsets.all(8), child: child);
+  pad8(child) => Padding(padding: EdgeInsets.all(8), child: child);
 
   toggleBackdrop() {
-    setState(() => botOffset = botOffset == 400 ? 16 : 400);
+    setState(() => botOffset = botOffset == 380 ? 16 : 380);
   }
 
   loadData() {
@@ -66,26 +65,29 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
       currentId = id;
       baseZoom = 1;
       zoom = 1;
-      translate = Offset(0, 0);
-      botOffset = 400;
+      opacity = 1;
+      translate = Offset.zero;
+      botOffset = 380;
     });
   }
 
   void initState() {
     super.initState();
     loadData();
-    transCtrl =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    transCtrl = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 500),
+    );
     timer = Timer.periodic(Duration(seconds: 5), (t) {
       if (scrlCtrl.hasClients) {
-        double offset = scrlCtrl.offset + 250 * scrollDirection;
+        double offset = scrlCtrl.offset + 500 * scrollDirection;
         if (offset > scrlCtrl.position.maxScrollExtent || offset < 0) {
           scrollDirection *= -1;
           offset = max(0, min(scrlCtrl.position.maxScrollExtent, offset));
         }
         scrlCtrl.animateTo(
           offset,
-          duration: Duration(seconds: 5),
+          duration: Duration(seconds: 10),
           curve: Curves.linear,
         );
       }
@@ -93,7 +95,7 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
   }
 
   @override
-  Widget build(context) {
+  Widget build(c) {
     return WillPopScope(
       onWillPop: () async {
         if (history.isEmpty) {
@@ -106,18 +108,16 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
         backgroundColor: Color(0),
         body: data == null
             ? Container()
-            : Stack(
-                children: [
-                  Positioned.fill(
-                    child: Image.asset('bcg.jpg', fit: BoxFit.cover),
-                  ),
-                  mainPreview,
-                  hints,
-                  header,
-                  backdrop,
-                  backButton,
-                ],
-              ),
+            : Stack(children: [
+                Positioned.fill(
+                  child: Image.asset('bcg.jpg', fit: BoxFit.cover),
+                ),
+                preview,
+                hints,
+                header,
+                backdrop,
+                backButton,
+              ]),
       ),
     );
   }
@@ -132,10 +132,7 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   img(data[history.last]['img'], 40.0),
-                  Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                  ),
+                  Icon(Icons.arrow_back, color: Colors.white),
                 ],
               ),
             ),
@@ -162,14 +159,14 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
         right: 0,
         child: SafeArea(
           child: Text(
-            'Deep Biology',
+            'Biology dive',
             style: th.primaryTextTheme.title,
             textAlign: TextAlign.center,
           ),
         ),
       );
 
-  Widget get mainPreview => GestureDetector(
+  Widget get preview => GestureDetector(
         behavior: HitTestBehavior.opaque,
         onScaleStart: (d) {
           baseZoom = zoom;
@@ -187,9 +184,9 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
             offset: translate,
             child: Transform.scale(
               scale: zoom,
-              child: SizedBox(
-                height: width,
-                child: Stack(children: [cell(current, width, 2)]),
+              child: sb(
+                width,
+                Stack(children: [cell(current, width, 2)]),
               ),
             ),
           ),
@@ -204,7 +201,7 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
         child: GestureDetector(
           onVerticalDragUpdate: (d) {
             if ((d.primaryDelta > 10 && botOffset == 16) ||
-                (d.primaryDelta < -10 && botOffset == 400)) {
+                (d.primaryDelta < -10 && botOffset == 380)) {
               toggleBackdrop();
             }
           },
@@ -214,15 +211,15 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
               borderRadius: BorderRadius.circular(16),
               color: Colors.white,
             ),
-            height: 450,
-            padding: const EdgeInsets.all(16),
+            height: 430,
+            padding: EdgeInsets.all(16),
             child: Column(
               children: [
                 Text(current['name'], style: tt.title),
-                box8,
+                sb(8.0),
                 Text(current['desc'], maxLines: 14),
-                box8,
-                Text('Related:', style: tt.subtitle),
+                sb(8.0),
+                Text('See also:', style: tt.subtitle),
                 SizedBox(
                   height: 100,
                   child: Row(
@@ -230,8 +227,8 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
                     children: (current["ref"] as List).map(smallCard).toList(),
                   ),
                 ),
-                box8,
-                FittedBox(child: Text('Source:${current['source']}')),
+                sb(8.0),
+                FittedBox(child: Text('More: ${current['source']}')),
               ],
             ),
           ),
@@ -245,7 +242,35 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
     var size = childData['size'];
     var children = (data[id]['children'] as List)
         .map((childData) => cell(childData, size * width, lvl - 1));
-    var child = Stack(children: [img(data[id]['img'])]..addAll(children));
+    var child = Opacity(
+      opacity: opacity,
+      child: Stack(
+        children: [img(data[id]['img'])]..addAll(children),
+      ),
+    );
+    onTap() {
+      if (id != currentId) {
+        var x = -(left - 0.5 + size / 2) * width / size;
+        var y = -(top - 0.5 + size / 2) * width / size;
+        baseZoom = zoom;
+        startTranslate = translate;
+        var listener = () {
+          setState(() {
+            var t = transCtrl.value;
+            zoom = baseZoom + (1 / size - baseZoom) * t;
+            translate = startTranslate + (Offset(x, y) - startTranslate) * t;
+            opacity = 1 - pow(t, 2);
+            botOffset = 380;
+          });
+        };
+        transCtrl.addListener(listener);
+        transCtrl.forward(from: 0).then((_) {
+          transCtrl.removeListener(listener);
+          goTo(id);
+        });
+      }
+    }
+
     return Positioned(
       key: Key('$id$top$left'),
       top: width * top,
@@ -255,24 +280,7 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
       child: lvl > 0
           ? GestureDetector(
               child: child,
-              onTap: () {
-                var x = -(left - 0.5 + size / 2) * width / size;
-                var y = -(top - 0.5 + size / 2) * width / size;
-                Animation animation = Tween(begin: translate, end: Offset(x, y))
-                    .animate(transCtrl);
-                Animation zoomAnimation =
-                    Tween(begin: zoom, end: 1 / size).animate(transCtrl);
-                var listener = () => setState(() {
-                      zoom = zoomAnimation.value;
-                      translate = animation.value;
-                      botOffset = 400;
-                    });
-                transCtrl.addListener(listener);
-                transCtrl.forward(from: 0).then((_) {
-                  transCtrl.removeListener(listener);
-                  goTo(id);
-                });
-              },
+              onTap: onTap,
             )
           : child,
     );
