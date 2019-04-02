@@ -18,7 +18,7 @@ flutter:
   uses-material-design: true
   assets:
     - data.json
-    - assets/bcg.jpg
+    - bcg.jpg
     - assets/animal_cell.flr
     - assets/mitoch.flr
     - assets/vacu.flr
@@ -40,6 +40,7 @@ flutter:
     - assets/flagellum.flr
     - assets/dna.flr
     - assets/plasmid.flr
+    - assets/menu.flr
   fonts:
     - family: mc
       fonts:

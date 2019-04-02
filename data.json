@@ -1,4 +1,91 @@
 {
+  "menu": {
+    "id": "menu",
+    "img": "assets/menu.flr",
+    "name": "Animal cell",
+    "animation": "idle",
+    "ref": [
+      "mitochondria",
+      "vacuole",
+      "lysosome"
+    ],
+    "source": "https://www.thoughtco.com/all-about-animal-cells-373379",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "Animal cells are eukaryotic cells or cells with a membrane-bound nucleus. Unlike prokaryotic cells, DNA in animal cells is housed within the nucleus. In addition to having a nucleus, animal cells also contain other membrane-bound organelles, or tiny cellular structures, that carry out specific functions necessary for normal cellular operation. Organelles have a wide range of responsibilities that include everything from producing hormones and enzymes to providing energy for animal cells.",
+    "children": [
+      {
+        "id": "animal",
+        "left": 0.0,
+        "top": 0.0,
+        "size": 0.5
+      },
+      {
+        "id": "plant_cell",
+        "left": 0.5,
+        "top": 0.0,
+        "size": 0.5
+      },
+      {
+        "id": "bacteria",
+        "left": 0.0,
+        "top": 0.5,
+        "size": 0.5
+      }
+    ]
+  },
+  "pilus2": {
+    "id": "pilus2",
+    "img": "assets/pilus2.flr",
+    "name": "Pilus",
+    "animation": "idle",
+    "ref": [
+      "pilus1",
+      "vacuole",
+      "lysosome"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Pilus",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
+    "children": []
+  },
+  "pilus3": {
+    "id": "pilus3",
+    "img": "assets/pilus3.flr",
+    "name": "Pilus",
+    "animation": "idle",
+    "ref": [
+      "pilus1",
+      "vacuole",
+      "lysosome"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Pilus",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
+    "children": []
+  },
+  "pilus4": {
+    "id": "pilus4",
+    "img": "assets/pilus4.flr",
+    "name": "Pilus",
+    "animation": "idle",
+    "ref": [
+      "pilus1",
+      "vacuole",
+      "lysosome"
+    ],
+    "source": "https://en.wikipedia.org/wiki/Pilus",
+    "left": 0.0,
+    "top": 0.0,
+    "size": 1.0,
+    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
+    "children": []
+  },
   "animal": {
     "id": "animal",
     "img": "assets/animal_cell.flr",
@@ -505,32 +592,38 @@
         "left": 0.6,
         "top": 0.25,
         "size": 0.03
-      },      {
+      },
+      {
         "id": "ribosome",
         "left": 0.8,
         "top": 0.3,
         "size": 0.03
-      },      {
+      },
+      {
         "id": "ribosome",
         "left": 0.7,
         "top": 0.5,
         "size": 0.03
-      },      {
+      },
+      {
         "id": "ribosome",
         "left": 0.5,
         "top": 0.7,
         "size": 0.03
-      },      {
+      },
+      {
         "id": "ribosome",
         "left": 0.3,
         "top": 0.5,
         "size": 0.03
-      },      {
+      },
+      {
         "id": "ribosome",
         "left": 0.35,
         "top": 0.67,
         "size": 0.03
-      },      {
+      },
+      {
         "id": "ribosome",
         "left": 0.75,
         "top": 0.25,
@@ -670,57 +763,6 @@
   "pilus1": {
     "id": "pilus1",
     "img": "assets/pilus1.flr",
-    "name": "Pilus",
-    "animation": "idle",
-    "ref": [
-      "pilus1",
-      "vacuole",
-      "lysosome"
-    ],
-    "source": "https://en.wikipedia.org/wiki/Pilus",
-    "left": 0.0,
-    "top": 0.0,
-    "size": 1.0,
-    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
-    "children": []
-  },
-  "pilus2": {
-    "id": "pilus2",
-    "img": "assets/pilus2.flr",
-    "name": "Pilus",
-    "animation": "idle",
-    "ref": [
-      "pilus1",
-      "vacuole",
-      "lysosome"
-    ],
-    "source": "https://en.wikipedia.org/wiki/Pilus",
-    "left": 0.0,
-    "top": 0.0,
-    "size": 1.0,
-    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
-    "children": []
-  },
-  "pilus3": {
-    "id": "pilus3",
-    "img": "assets/pilus3.flr",
-    "name": "Pilus",
-    "animation": "idle",
-    "ref": [
-      "pilus1",
-      "vacuole",
-      "lysosome"
-    ],
-    "source": "https://en.wikipedia.org/wiki/Pilus",
-    "left": 0.0,
-    "top": 0.0,
-    "size": 1.0,
-    "desc": "A pilus (Latin for 'hair'; plural: pili) is a hair-like appendage found on the surface of many bacteria.[1] The terms pilus and fimbria (Latin for 'fringe'; plural: fimbriae) can be used interchangeably, although some researchers reserve the term pilus for the appendage required for bacterial conjugation. All pili in the latter sense are primarily composed of pilin proteins, which are oligomeric.",
-    "children": []
-  },
-  "pilus4": {
-    "id": "pilus4",
-    "img": "assets/pilus4.flr",
     "name": "Pilus",
     "animation": "idle",
     "ref": [

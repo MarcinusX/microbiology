@@ -5,9 +5,9 @@ import 'dart:math';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
-const box16 = SizedBox(height: 8);
+const box8 = SizedBox(height: 8);
 
-main() => runApp(MaterialApp(home: App(), title: 'Microbiology 101'));
+main() => runApp(MaterialApp(home: App(), title: 'Deep Biology'));
 
 class App extends StatefulWidget {
   MState createState() => MState();
@@ -16,7 +16,7 @@ class App extends StatefulWidget {
 class MState extends State<App> with SingleTickerProviderStateMixin {
   Map data;
   List<String> history = [];
-  String currentId = 'bacteria';
+  String currentId = 'menu';
   Offset translate = Offset(0, 0);
   Offset startTranslate;
   Offset zoomStart;
@@ -109,7 +109,7 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
             : Stack(
                 children: [
                   Positioned.fill(
-                    child: Image.asset('assets/bcg.jpg', fit: BoxFit.cover),
+                    child: Image.asset('bcg.jpg', fit: BoxFit.cover),
                   ),
                   mainPreview,
                   hints,
@@ -151,7 +151,7 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
           child: ListView(
             controller: scrlCtrl,
             scrollDirection: Axis.horizontal,
-            children: data.keys.map(smallCard).toList(),
+            children: data.keys.map(smallCard).toList().sublist(4),
           ),
         ),
       );
@@ -162,7 +162,7 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
         right: 0,
         child: SafeArea(
           child: Text(
-            'Microbiology 101',
+            'Deep Biology',
             style: th.primaryTextTheme.title,
             textAlign: TextAlign.center,
           ),
@@ -189,10 +189,7 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
               scale: zoom,
               child: SizedBox(
                 height: width,
-                child: Stack(
-                  children: [buildOrganella(current)]
-                    ..addAll((current['children'] as List).map(buildOrganella)),
-                ),
+                child: Stack(children: [cell(current, width, 2)]),
               ),
             ),
           ),
@@ -222,9 +219,9 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
             child: Column(
               children: [
                 Text(current['name'], style: tt.title),
-                box16,
+                box8,
                 Text(current['desc'], maxLines: 14),
-                box16,
+                box8,
                 Text('Related:', style: tt.subtitle),
                 SizedBox(
                   height: 100,
@@ -233,7 +230,7 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
                     children: (current["ref"] as List).map(smallCard).toList(),
                   ),
                 ),
-                box16,
+                box8,
                 FittedBox(child: Text('Source:${current['source']}')),
               ],
             ),
@@ -241,38 +238,43 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
         ),
       );
 
-  Widget buildOrganella(childData) {
+  Widget cell(childData, width, lvl) {
     var id = childData['id'];
     var left = childData['left'];
     var top = childData['top'];
     var size = childData['size'];
+    var children = (data[id]['children'] as List)
+        .map((childData) => cell(childData, size * width, lvl - 1));
+    var child = Stack(children: [img(data[id]['img'])]..addAll(children));
     return Positioned(
       key: Key('$id$top$left'),
       top: width * top,
       left: width * left,
       width: width * size,
       height: width * size,
-      child: GestureDetector(
-        child: img(data[id]['img']),
-        onTap: () {
-          var x = -(left - 0.5 + size / 2) * width / size;
-          var y = -(top - 0.5 + size / 2) * width / size;
-          Animation animation =
-              Tween(begin: translate, end: Offset(x, y)).animate(transCtrl);
-          Animation zoomAnimation =
-              Tween(begin: zoom, end: 1 / size).animate(transCtrl);
-          var listener = () => setState(() {
-                zoom = zoomAnimation.value;
-                translate = animation.value;
-                botOffset = 400;
-              });
-          transCtrl.addListener(listener);
-          transCtrl.forward(from: 0).then((_) {
-            transCtrl.removeListener(listener);
-            goTo(id);
-          });
-        },
-      ),
+      child: lvl > 0
+          ? GestureDetector(
+              child: child,
+              onTap: () {
+                var x = -(left - 0.5 + size / 2) * width / size;
+                var y = -(top - 0.5 + size / 2) * width / size;
+                Animation animation = Tween(begin: translate, end: Offset(x, y))
+                    .animate(transCtrl);
+                Animation zoomAnimation =
+                    Tween(begin: zoom, end: 1 / size).animate(transCtrl);
+                var listener = () => setState(() {
+                      zoom = zoomAnimation.value;
+                      translate = animation.value;
+                      botOffset = 400;
+                    });
+                transCtrl.addListener(listener);
+                transCtrl.forward(from: 0).then((_) {
+                  transCtrl.removeListener(listener);
+                  goTo(id);
+                });
+              },
+            )
+          : child,
     );
   }
 
