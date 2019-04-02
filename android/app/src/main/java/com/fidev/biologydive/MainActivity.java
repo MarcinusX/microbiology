@@ -1,4 +1,4 @@
-package com.fidev.microbiology;
+package com.fidev.biologydive;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
