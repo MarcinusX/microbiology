@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
-
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
@@ -26,21 +25,13 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
   Timer timer;
   int scrollDirection = 1;
   var scrlCtrl = ScrollController();
-
   Map get current => data[currentId];
-
   get width => MediaQuery.of(context).size.width;
-
   get th => Theme.of(context);
-
   get tt => th.textTheme;
-
   sb(size, [child]) => SizedBox(width: size, height: size, child: child);
-
   img(name, [size]) => sb(size, FlareActor(name, animation: 'idle'));
-
   pad8(child) => Padding(padding: EdgeInsets.all(8), child: child);
-
   toggleBackdrop() {
     setState(() => botOffset = botOffset == 380 ? 16 : 380);
   }
@@ -138,7 +129,6 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
             ),
           ),
         );
-
   Widget get hints => Positioned(
         left: 0,
         right: 0,
@@ -152,7 +142,6 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
           ),
         ),
       );
-
   Widget get header => Positioned(
         top: 16,
         left: 0,
@@ -165,7 +154,6 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
           ),
         ),
       );
-
   Widget get preview => GestureDetector(
         behavior: HitTestBehavior.opaque,
         onScaleStart: (d) {
@@ -192,7 +180,6 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
           ),
         ),
       );
-
   Widget get backdrop => AnimatedPositioned(
         duration: Duration(milliseconds: 300),
         bottom: -botOffset,
@@ -234,7 +221,6 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
           ),
         ),
       );
-
   Widget cell(childData, width, lvl) {
     var id = childData['id'];
     var left = childData['left'];
@@ -250,6 +236,9 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
     );
     onTap() {
       if (id != currentId) {
+        if (currentId == 'menu') {
+          return goTo(id);
+        }
         var x = -(left - 0.5 + size / 2) * width / size;
         var y = -(top - 0.5 + size / 2) * width / size;
         baseZoom = zoom;
