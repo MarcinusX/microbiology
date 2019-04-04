@@ -2,7 +2,7 @@
   "menu": {
     "id": "menu",
     "img": "assets/menu.flr",
-    "name": "About the app",
+    "name": "About",
     "ref": [
       "animal",
       "plant_cell",
