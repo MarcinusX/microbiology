@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 import 'package:flare_flutter/flare_actor.dart';
@@ -11,7 +10,7 @@ class App extends StatefulWidget {
 }
 
 class MState extends State<App> with SingleTickerProviderStateMixin {
-  Map data;
+  Map<String, dynamic> data;
   List<String> history = [];
   String currentId = 'menu';
   Offset translate = Offset.zero;
@@ -19,21 +18,37 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
   Offset zoomStart;
   double baseZoom = 1;
   double zoom = 1;
-  double botOffset = 380;
+  double backdropOffset = 380;
   double opacity = 1;
   AnimationController transCtrl;
-  Timer timer;
-  int scrollDirection = 1;
-  var scrlCtrl = ScrollController();
-  Map get current => data[currentId];
-  get width => MediaQuery.of(context).size.width;
-  get th => Theme.of(context);
-  get tt => th.textTheme;
-  sb(size, [child]) => SizedBox(width: size, height: size, child: child);
-  img(name, [size]) => sb(size, FlareActor(name, animation: 'idle'));
-  pad8(child) => Padding(padding: EdgeInsets.all(8), child: child);
+  final hintsCtrl = ScrollController(initialScrollOffset: 16);
+  Map<String, dynamic> get current => data[currentId];
+  double get width => MediaQuery.of(context).size.width;
+  ThemeData get th => Theme.of(context);
+  Widget sb(double size, [Widget child]) {
+    return SizedBox(
+      width: size,
+      height: size,
+      child: child,
+    );
+  }
+
+  Widget img(String name, [double size]) {
+    return sb(
+      size,
+      FlareActor(name, animation: 'idle'),
+    );
+  }
+
+  Widget pad8(Widget child) {
+    return Padding(
+      padding: EdgeInsets.all(8),
+      child: child,
+    );
+  }
+
   toggleBackdrop() {
-    setState(() => botOffset = botOffset == 380 ? 16 : 380);
+    setState(() => backdropOffset = backdropOffset == 380 ? 16 : 380);
   }
 
   loadData() {
@@ -46,7 +61,7 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
     goTo(history.last, true);
   }
 
-  goTo(id, [isReturn = false]) {
+  goTo(String id, [isReturn = false]) {
     setState(() {
       if (isReturn) {
         history.removeLast();
@@ -58,7 +73,7 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
       zoom = 1;
       opacity = 1;
       translate = Offset.zero;
-      botOffset = 380;
+      backdropOffset = 380;
     });
   }
 
@@ -69,20 +84,6 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
       vsync: this,
       duration: Duration(milliseconds: 500),
     );
-    timer = Timer.periodic(Duration(seconds: 5), (t) {
-      if (scrlCtrl.hasClients) {
-        double offset = scrlCtrl.offset + 500 * scrollDirection;
-        if (offset > scrlCtrl.position.maxScrollExtent || offset < 0) {
-          scrollDirection *= -1;
-          offset = max(0, min(scrlCtrl.position.maxScrollExtent, offset));
-        }
-        scrlCtrl.animateTo(
-          offset,
-          duration: Duration(seconds: 10),
-          curve: Curves.linear,
-        );
-      }
-    });
   }
 
   @override
@@ -113,60 +114,72 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
     );
   }
 
-  Widget get backButton => history.isEmpty
-      ? Container()
-      : SafeArea(
-          child: pad8(
-            GestureDetector(
-              onTap: goBack,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  img(data[history.last]['img'], 40.0),
-                  Icon(Icons.arrow_back, color: Colors.white),
-                ],
+  Widget get backButton {
+    return history.isEmpty
+        ? Container()
+        : SafeArea(
+            child: pad8(
+              GestureDetector(
+                onTap: goBack,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    img(data[history.last]['img'], 40),
+                    Icon(Icons.arrow_back, color: Colors.white),
+                  ],
+                ),
               ),
             ),
-          ),
-        );
-  Widget get hints => Positioned(
-        left: 0,
-        right: 0,
-        bottom: 56,
-        child: SizedBox(
-          height: 100,
-          child: ListView(
-            controller: scrlCtrl,
-            scrollDirection: Axis.horizontal,
-            children: data.keys.map(smallCard).toList().sublist(4),
-          ),
+          );
+  }
+
+  Widget get hints {
+    return Positioned(
+      left: 0,
+      right: 0,
+      bottom: 56,
+      child: SizedBox(
+        height: 100,
+        child: ListView(
+          controller: hintsCtrl,
+          scrollDirection: Axis.horizontal,
+          children: data.keys.map(smallCard).toList().sublist(4),
         ),
-      );
-  Widget get header => Positioned(
-        top: 16,
-        left: 0,
-        right: 0,
-        child: SafeArea(
-          child: Text(
-            'Biology dive',
-            style: th.primaryTextTheme.title,
-            textAlign: TextAlign.center,
-          ),
+      ),
+    );
+  }
+
+  Widget get header {
+    return Positioned(
+      top: 16,
+      left: 0,
+      right: 0,
+      child: SafeArea(
+        child: Text(
+          'Biology dive',
+          style: th.primaryTextTheme.title,
+          textAlign: TextAlign.center,
         ),
-      );
-  Widget get preview => GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onScaleStart: (d) {
-          baseZoom = zoom;
-          startTranslate = translate;
-          zoomStart = d.focalPoint;
-        },
-        onScaleUpdate: (d) {
-          setState(() {
-            zoom = d.scale * baseZoom;
-            translate = startTranslate + d.focalPoint - zoomStart;
-          });
-        },
+      ),
+    );
+  }
+
+  Widget get preview {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onScaleStart: (d) {
+        baseZoom = zoom;
+        startTranslate = translate;
+        zoomStart = d.focalPoint;
+      },
+      onScaleUpdate: (d) {
+        setState(() {
+          zoom = d.scale * baseZoom;
+          translate = startTranslate + d.focalPoint - zoomStart;
+        });
+      },
+      child: Padding(
+        padding: EdgeInsets.only(bottom: 64),
         child: Center(
           child: Transform.translate(
             offset: translate,
@@ -179,56 +192,62 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
             ),
           ),
         ),
-      );
-  Widget get backdrop => AnimatedPositioned(
-        duration: Duration(milliseconds: 300),
-        bottom: -botOffset,
-        left: 0,
-        right: 0,
-        child: GestureDetector(
-          onVerticalDragUpdate: (d) {
-            if ((d.primaryDelta > 10 && botOffset == 16) ||
-                (d.primaryDelta < -10 && botOffset == 380)) {
-              toggleBackdrop();
-            }
-          },
-          onTap: toggleBackdrop,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: Colors.white,
-            ),
-            height: 430,
-            padding: EdgeInsets.all(16),
-            child: Column(
-              children: [
-                Text(current['name'], style: tt.title),
-                sb(8.0),
-                Text(current['desc'], maxLines: 14),
-                sb(8.0),
-                Text('See also:', style: tt.subtitle),
-                SizedBox(
-                  height: 100,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: (current["ref"] as List).map(smallCard).toList(),
-                  ),
+      ),
+    );
+  }
+
+  Widget get backdrop {
+    return AnimatedPositioned(
+      duration: Duration(milliseconds: 300),
+      bottom: -backdropOffset,
+      left: 0,
+      right: 0,
+      child: GestureDetector(
+        onVerticalDragUpdate: (d) {
+          if ((d.primaryDelta > 10 && backdropOffset == 16) ||
+              (d.primaryDelta < -10 && backdropOffset == 380)) {
+            toggleBackdrop();
+          }
+        },
+        onTap: toggleBackdrop,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: Colors.white,
+          ),
+          height: 430,
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Text(current['name'], style: th.textTheme.title),
+              sb(8),
+              Text(current['desc'], maxLines: 14),
+              sb(8),
+              Text('See also:', style: th.textTheme.subtitle),
+              SizedBox(
+                height: 100,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: (current["ref"] as List).map(smallCard).toList(),
                 ),
-                sb(8.0),
-                FittedBox(child: Text('More: ${current['source']}')),
-              ],
-            ),
+              ),
+              sb(8),
+              FittedBox(child: Text('More: ${current['source']}')),
+            ],
           ),
         ),
-      );
-  Widget cell(childData, width, lvl) {
-    var id = childData['id'];
-    var left = childData['left'];
-    var top = childData['top'];
-    var size = childData['size'];
-    var children = (data[id]['children'] as List)
+      ),
+    );
+  }
+
+  Widget cell(Map childData, double width, int lvl) {
+    String id = childData['id'];
+    double left = childData['left'];
+    double top = childData['top'];
+    double size = childData['size'];
+    Iterable<Widget> children = (data[id]['children'] as List)
         .map((childData) => cell(childData, size * width, lvl - 1));
-    var child = Opacity(
+    Widget child = Opacity(
       opacity: opacity,
       child: Stack(
         children: [img(data[id]['img'])]..addAll(children),
@@ -239,17 +258,17 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
         if (currentId == 'menu') {
           return goTo(id);
         }
-        var x = -(left - 0.5 + size / 2) * width / size;
-        var y = -(top - 0.5 + size / 2) * width / size;
+        double x = -(left - 0.5 + size / 2) * width / size;
+        double y = -(top - 0.5 + size / 2) * width / size;
         baseZoom = zoom;
         startTranslate = translate;
-        var listener = () {
+        VoidCallback listener = () {
           setState(() {
-            var t = transCtrl.value;
+            double t = transCtrl.value;
             zoom = baseZoom + (1 / size - baseZoom) * t;
             translate = startTranslate + (Offset(x, y) - startTranslate) * t;
             opacity = 1 - pow(t, 2);
-            botOffset = 380;
+            backdropOffset = 380;
           });
         };
         transCtrl.addListener(listener);
@@ -275,20 +294,21 @@ class MState extends State<App> with SingleTickerProviderStateMixin {
     );
   }
 
-  Widget smallCard(id) => Opacity(
-        opacity: 0.8,
-        child: Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          child: InkWell(
-            onTap: () => goTo(id),
-            child: pad8(
-              Column(children: [
-                img(data[id]['img'], 56.0),
-                Flexible(child: Text(data[id]['name'])),
-              ]),
-            ),
+  Widget smallCard(id) {
+    return Opacity(
+      opacity: 0.8,
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: InkWell(
+          onTap: () => goTo(id),
+          child: pad8(
+            Column(children: [
+              img(data[id]['img'], 56),
+              Flexible(child: Text(data[id]['name'])),
+            ]),
           ),
         ),
-      );
+      ),
+    );
+  }
 }
