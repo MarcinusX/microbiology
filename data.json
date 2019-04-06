@@ -104,6 +104,24 @@
     "desc": "Animal cells are eukaryotic cells or cells with a membrane-bound nucleus. Unlike prokaryotic cells, DNA in animal cells is housed within the nucleus. In addition to having a nucleus, animal cells also contain other membrane-bound organelles, or tiny cellular structures, that carry out specific functions necessary for normal cellular operation. Organelles have a wide range of responsibilities that include everything from producing hormones and enzymes to providing energy for animal cells.",
     "children": [
       {
+        "id": "microtubule",
+        "left": 0.55,
+        "top": 0.25,
+        "size": 0.2
+      },
+      {
+        "id": "microtubule",
+        "left": 0.6,
+        "top": 0.7,
+        "size": 0.1
+      },
+      {
+        "id": "microtubule",
+        "left": 0.1,
+        "top": 0.5,
+        "size": 0.1
+      },
+      {
         "id": "mitochondria",
         "left": 0.65,
         "top": 0.15,
@@ -264,24 +282,6 @@
         "left": 0.45,
         "top": 0.22,
         "size": 0.03
-      },
-      {
-        "id": "microtubule",
-        "left": 0.55,
-        "top": 0.25,
-        "size": 0.2
-      },
-      {
-        "id": "microtubule",
-        "left": 0.6,
-        "top": 0.7,
-        "size": 0.1
-      },
-      {
-        "id": "microtubule",
-        "left": 0.1,
-        "top": 0.5,
-        "size": 0.1
       }
     ]
   },
